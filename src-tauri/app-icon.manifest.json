@@ -1,0 +1,6 @@
+{
+  "default": "../src/assets/images/logo/PiAgentUiLogoBlackletterBGTransp.png",
+  "android_bg": "../assets/app-icons/app-icon-android-background.svg",
+  "android_fg": "../assets/app-icons/app-icon-android-foreground.svg",
+  "android_fg_scale": 66
+}

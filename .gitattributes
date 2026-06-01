@@ -1,0 +1,24 @@
+# Auto-detect text files and normalize to LF
+* text=auto eol=lf
+
+# Shell scripts always LF
+*.sh text eol=lf
+
+# Caddy/Docker always LF
+Caddyfile text eol=LF
+Dockerfile text eol=lf
+Dockerfile.* text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.icns binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary
+*.ttf binary
+*.woff binary
+*.woff2 binary

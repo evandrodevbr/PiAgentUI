@@ -1,0 +1,215 @@
+{
+  "commandPalette": {
+    "placeholder": "একটি কমান্ড টাইপ করুন...",
+    "noCommandsFound": "কোনো কমান্ড পাওয়া যায়নি"
+  },
+  "fileExplorer": {
+    "selectProject": "ফাইল ব্রাউজ করতে একটি প্রকল্প নির্বাচন করুন",
+    "explorer": "এক্সপ্লোরার",
+    "noFilesFound": "কোনো ফাইল পাওয়া যায়নি",
+    "failedToLoadFiles": "ফাইল লোড করতে ব্যর্থ",
+    "failedToLoadFile": "ফাইল লোড করতে ব্যর্থ",
+    "binaryFile": "বাইনারি ফাইল — প্রিভিউ উপলব্ধ নয়",
+    "fit": "ফিট",
+    "oneToOne": "1:1"
+  },
+  "terminal": {
+    "terminal": "টার্মিনাল",
+    "newTerminal": "নতুন টার্মিনাল",
+    "hidePanel": "প্যানেল লুকান",
+    "restoringSessions": "সেশন পুনরুদ্ধার হচ্ছে...",
+    "noTerminals": "কোনো টার্মিনাল নেই",
+    "createTerminal": "টার্মিনাল তৈরি করুন",
+    "closeTerminal": "টার্মিনাল বন্ধ করুন"
+  },
+  "diffViewer": {
+    "noChanges": "কোনো পরিবর্তন নেই",
+    "linesUnchanged": "{{count}} লাইন অপরিবর্তিত"
+  },
+  "rightPanel": {
+    "loadingPanel": "প্যানেল লোড হচ্ছে...",
+    "noActiveSession": "কোনো সক্রিয় সেশন নেই"
+  },
+  "bottomPanel": {
+    "loadingPanel": "প্যানেল লোড হচ্ছে..."
+  },
+  "panelContainer": {
+    "files": "ফাইল",
+    "changes": "পরিবর্তন",
+    "mcp": "MCP",
+    "skills": "Skills",
+    "worktrees": "Worktrees",
+    "extensions": "Extensions",
+    "tab": "ট্যাব",
+    "addTab": "ট্যাব যোগ করুন",
+    "renameTerminal": "টার্মিনালের নাম বদলান",
+    "moveToRight": "ডান প্যানেলে সরান",
+    "moveToBottom": "নিচের প্যানেলে সরান",
+    "mcpServers": "MCP সার্ভার"
+  },
+  "sessionChanges": {
+    "loadingChanges": "পরিবর্তন লোড হচ্ছে...",
+    "failedToLoad": "পরিবর্তন লোড করতে ব্যর্থ",
+    "failedToInitGit": "Git রিপোজিটরি শুরু করতে ব্যর্থ",
+    "mode": "পরিবর্তন মোড",
+    "modeHint": "রিভিউ স্কোপ",
+    "noChanges": "এই সেশনে কোনো পরিবর্তন নেই",
+    "noGitChanges": "এখনও কোনো uncommitted পরিবর্তন নেই",
+    "noBranchChanges": "এখনও কোনো branch পরিবর্তন নেই",
+    "noTurnChanges": "বর্তমান turn-এ কোনো পরিবর্তন নেই",
+    "noGit": "কোনো Git রিপোজিটরি শনাক্ত হয়নি",
+    "noGitHint": "সেশন ও বর্তমান-turn পরিবর্তন ট্র্যাক করতে Git শুরু করুন",
+    "initGit": "Git রিপোজিটরি শুরু করুন",
+    "initializingGit": "শুরু হচ্ছে...",
+    "fileCount_one": "{{count}} ফাইল",
+    "fileCount_other": "{{count}} ফাইল",
+    "fileCountCompact": "{{count}}f",
+    "gitScope": "Git পরিবর্তন",
+    "gitScopeHint": "working tree-তে uncommitted ফাইল",
+    "branchScope": "Branch পরিবর্তন",
+    "branchScopeHint": "{{branch}} থেকে এই branch-এর সব পরিবর্তন",
+    "sessionScope": "সেশন পরিবর্তন",
+    "sessionScopeHint": "এই সেশনে পরিবর্তিত সবকিছু",
+    "turnScope": "শেষ turn-এর পরিবর্তন",
+    "turnScopeHint": "শুধু শেষ assistant turn-এ পরিবর্তিত ফাইল",
+    "list": "তালিকা",
+    "flatList": "সমতল তালিকা",
+    "tree": "Tree",
+    "treeView": "Tree view",
+    "unified": "Unified",
+    "split": "Split"
+  },
+  "mcpPanel": {
+    "title": "MCP সার্ভার",
+    "addServer": "সার্ভার যোগ করুন",
+    "loadingServers": "সার্ভার লোড হচ্ছে...",
+    "failedToLoad": "MCP সার্ভার লোড করতে ব্যর্থ",
+    "noServers": "কোনো MCP সার্ভার কনফিগার করা নেই",
+    "addMcpServer": "MCP সার্ভার যোগ করুন",
+    "local": "লোকাল",
+    "remote": "রিমোট",
+    "serverName": "সার্ভারের নাম",
+    "commandPlaceholder": "কমান্ড (e.g., npx -y @modelcontextprotocol/server-github)",
+    "urlPlaceholder": "সার্ভার URL (e.g., https://mcp.example.com)",
+    "nameRequired": "সার্ভারের নাম আবশ্যক",
+    "commandRequired": "কমান্ড আবশ্যক",
+    "urlRequired": "URL আবশ্যক",
+    "failedToAdd": "সার্ভার যোগ করতে ব্যর্থ",
+    "connected": "সংযুক্ত",
+    "configured": "কনফিগার করা",
+    "disabled": "নিষ্ক্রিয়",
+    "needsAuth": "Auth প্রয়োজন",
+    "needsRegistration": "Registration প্রয়োজন",
+    "disconnect": "সংযোগ বিচ্ছিন্ন করুন",
+    "connect": "সংযোগ করুন",
+    "authenticate": "প্রমাণীকরণ করুন"
+  },
+  "skillPanel": {
+    "title": "Skills",
+    "filterPlaceholder": "skills ফিল্টার করুন...",
+    "loadingSkills": "skills লোড হচ্ছে...",
+    "failedToLoad": "skills লোড করতে ব্যর্থ",
+    "noSkills": "কোনো skill পাওয়া যায়নি",
+    "sources": {
+      "global": "Global",
+      "project": "প্রকল্প",
+      "package": "Package",
+      "other": "অন্যান্য"
+    }
+  },
+  "extensionPanel": {
+    "title": "Extensions",
+    "filterPlaceholder": "extensions ফিল্টার করুন...",
+    "loadingExtensions": "extensions লোড হচ্ছে...",
+    "failedToLoad": "extensions লোড করতে ব্যর্থ",
+    "failedToInstall": "extension ইনস্টল করতে ব্যর্থ",
+    "failedToUninstall": "extension আনইনস্টল করতে ব্যর্থ",
+    "noExtensions": "কোনো extension পাওয়া যায়নি",
+    "installTitle": "extension ইনস্টল করুন",
+    "installDescription": "একটি নিরাপদ Pi install কমান্ড পেস্ট করুন। শুধু pi install কমান্ড গ্রহণ করা হয়।",
+    "installCommandLabel": "ইনস্টল কমান্ড",
+    "installAction": "extension ইনস্টল করুন",
+    "install": "ইনস্টল",
+    "reloadRequired": "extension পরিবর্তন প্রয়োগ করতে Pi Agent রিলোড করুন।",
+    "uninstall": "আনইনস্টল",
+    "uninstallLabel": "{{name}} আনইনস্টল করুন",
+    "uninstallConfirm": "Pi Agent সেটিংস থেকে \"{{name}}\" আনইনস্টল করবেন?",
+    "filtered": "ফিল্টার করা",
+    "resourceActive": "সক্রিয়",
+    "resourceInactive": "নিষ্ক্রিয়",
+    "scopes": {
+      "project": "প্রকল্প packages",
+      "user": "ব্যবহারকারী packages"
+    },
+    "status": {
+      "active": "সক্রিয়",
+      "inactive": "নিষ্ক্রিয়",
+      "missing": "অনুপস্থিত",
+      "error": "ত্রুটি"
+    },
+    "resourceTypes": {
+      "extensions": "Extensions",
+      "skills": "Skills",
+      "prompts": "Prompts",
+      "themes": "Themes"
+    }
+  },
+  "worktreePanel": {
+    "selectProject": "worktrees পরিচালনা করতে একটি প্রকল্প নির্বাচন করুন",
+    "git": "Git",
+    "worktrees": "Worktrees",
+    "createWorktree": "Worktree তৈরি করুন",
+    "loadingWorktrees": "worktrees লোড হচ্ছে...",
+    "failedToLoad": "worktrees লোড করতে ব্যর্থ",
+    "failedWithMessage": "Worktree ব্যর্থ: {{message}}",
+    "failedToCreate": "worktree তৈরি করতে ব্যর্থ",
+    "failedToRemove": "worktree সরাতে ব্যর্থ",
+    "failedToReset": "worktree রিসেট করতে ব্যর্থ",
+    "noWorktrees": "কোনো worktree পাওয়া যায়নি",
+    "removeWorktree": "Worktree সরান",
+    "removeWorktreeConfirm": "worktree \"{{name}}\" সরাবেন? এতে worktree ডিরেক্টরি মুছে যাবে।",
+    "resetWorktree": "Worktree রিসেট করুন",
+    "resetWorktreeConfirm": "worktree \"{{name}}\" রিসেট করবেন? এতে সব uncommitted পরিবর্তন বাতিল হবে।",
+    "newWorktree": "নতুন Worktree",
+    "worktreeNamePlaceholder": "Worktree নাম (e.g. feature-xyz)",
+    "openSessionAfter": "তৈরির পরে সেশন খুলুন",
+    "openSession": "এই worktree-তে সেশন খুলুন",
+    "resetWorktreeAction": "worktree রিসেট করুন",
+    "removeWorktreeAction": "worktree সরান"
+  },
+  "toast": {
+    "clearAll": "সব পরিষ্কার করুন"
+  },
+  "fullscreenViewer": {
+    "lines": "লাইন"
+  },
+  "desktopTitlebar": {
+    "goBack": "পেছনে যান",
+    "goForward": "সামনে যান",
+    "openProject": "প্রকল্প খুলুন",
+    "openSettings": "সেটিংস খুলুন",
+    "settingsUpdate": "আপডেট উপলব্ধ — সেটিংস খুলুন",
+    "newWindow": "নতুন উইন্ডো"
+  },
+  "multiFileDiff": {
+    "sessionChanges": "সেশন পরিবর্তন",
+    "fileCount_one": "{{count}} ফাইল",
+    "fileCount_other": "{{count}} ফাইল",
+    "failedToLoad": "পরিবর্তন লোড করতে ব্যর্থ",
+    "noChangesFound": "কোনো পরিবর্তন পাওয়া যায়নি",
+    "selectFile": "পরিবর্তন দেখতে একটি ফাইল নির্বাচন করুন"
+  },
+  "closeService": {
+    "title": "PiAgentUI বন্ধ করুন",
+    "description": "Pi Agent সার্ভিসটি এই অ্যাপ চালু করেছে। এটিও কি বন্ধ করতে চান?",
+    "closeAndStop": "বন্ধ করুন এবং সার্ভিস থামান",
+    "closeKeepRunning": "বন্ধ করুন, সার্ভিস চালু রাখুন"
+  },
+  "contentBlock": {
+    "fullscreen": "ফুলস্ক্রিন",
+    "exitCode": "exit {{code}}"
+  },
+  "diffView": {
+    "fullscreenView": "ফুলস্ক্রিন"
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "header": {
+    "openCode": "PiAgentUI",
+    "newChat": "নতুন চ্যাট",
+    "openSidebar": "সাইডবার খুলুন",
+    "clickToRename": "নাম বদলাতে ক্লিক করুন",
+    "shareSession": "সেশন শেয়ার করুন",
+    "closeBottomPanel": "নিচের প্যানেল বন্ধ করুন",
+    "openBottomPanel": "নিচের প্যানেল খুলুন",
+    "closePanel": "প্যানেল বন্ধ করুন",
+    "openPanel": "প্যানেল খুলুন"
+  },
+  "chatArea": {
+    "loadingSession": "সেশন লোড হচ্ছে...",
+    "loadingHistory": "ইতিহাস লোড হচ্ছে..."
+  },
+  "emptyState": {
+    "title": "নতুন কথোপকথন শুরু করুন",
+    "description": "এই সেশনের জন্য একটি কাজের ডিরেক্টরি বেছে নিন",
+    "workingDirectory": "কাজের ডিরেক্টরি",
+    "enterAbsolutePath": "Enter absolute path লিখুন...",
+    "backToDirectoryList": "ডিরেক্টরি তালিকায় ফিরুন",
+    "selectDirectory": "ডিরেক্টরি নির্বাচন করুন...",
+    "current": "(বর্তমান)",
+    "enterCustomPath": "Enter custom path লিখুন...",
+    "startConversation": "কথোপকথন শুরু করুন",
+    "orJustType": "অথবা বর্তমান ডিরেক্টরি দিয়ে শুরু করতে নিচে একটি বার্তা টাইপ করুন"
+  },
+  "inputBox": {
+    "dropFilesHere": "ফাইল এখানে ফেলুন",
+    "replyToAgentMobile": "Agent-কে উত্তর দিন...",
+    "replyToAgent": "Agent-কে উত্তর দিন (@ দিয়ে mention, / দিয়ে কমান্ড)"
+  },
+  "modelSelector": {
+    "selectModel": "মডেল নির্বাচন করুন",
+    "searchModels": "মডেল অনুসন্ধান...",
+    "noModelsFound": "কোনো মডেল পাওয়া যায়নি",
+    "tryDifferentKeyword": "অন্য কীওয়ার্ড চেষ্টা করুন",
+    "pinned": "পিন করা",
+    "recent": "সাম্প্রতিক",
+    "thinking": "ভাবছে",
+    "vision": "Vision",
+    "unpin": "আনপিন",
+    "pinToTop": "শীর্ষে পিন করুন",
+    "model": "মডেল"
+  },
+  "retryStatus": {
+    "retrying": "আবার চেষ্টা হচ্ছে (চেষ্টা {{attempt}})",
+    "nextIn": "পরবর্তী {{label}} পরে"
+  },
+  "shareDialog": {
+    "title": "চ্যাট শেয়ার করুন",
+    "publicLink": "পাবলিক লিংক",
+    "publicLinkDesc": "এই লিংক থাকা যে কেউ এই চ্যাট সেশন দেখতে পারবে।",
+    "failedCreate": "শেয়ার লিংক তৈরি করতে ব্যর্থ",
+    "failedRemove": "শেয়ার লিংক সরাতে ব্যর্থ",
+    "copyLink": "লিংক কপি করুন",
+    "stopSharing": "শেয়ার বন্ধ করুন",
+    "createPublicLink": "পাবলিক লিংক তৈরি করুন",
+    "creatingLink": "লিংক তৈরি হচ্ছে..."
+  },
+  "questionDialog": {
+    "title": "প্রশ্ন",
+    "moreCount": "+{{count}} আরও",
+    "minimize": "মিনিমাইজ",
+    "typeYourAnswer": "নিজের উত্তর টাইপ করুন..."
+  },
+  "permissionDialog": {
+    "permission": "অনুমতি: {{permission}}",
+    "moreCount": "+{{count}} আরও",
+    "minimize": "মিনিমাইজ",
+    "fromSubtask": "Subtask থেকে: {{title}}",
+    "changesPreview": "পরিবর্তনের প্রিভিউ",
+    "request": "অনুরোধ",
+    "rule": "নিয়ম",
+    "allowOnce": "একবার অনুমতি দিন",
+    "alwaysAllow": "সবসময় অনুমতি দিন",
+    "subtaskFallback": "Subtask",
+    "browserSession": "ব্রাউজার সেশন",
+    "thisSession": "এই সেশন",
+    "autoApproveEnabled": "Auto-approve সক্রিয়। অনুমতি রিসেট করতে ব্রাউজার রিফ্রেশ করুন।",
+    "changePermissionSettings": "আপনি যে কোনো সময় অনুমতি সেটিংস বদলাতে পারেন।"
+  },
+  "projectDialog": {
+    "typePath": "path টাইপ করুন...",
+    "parent": ".. (Parent)",
+    "noMatchingFolders": "মিল থাকা কোনো ফোল্ডার নেই",
+    "addCurrent": "বর্তমানটি যোগ করুন"
+  },
+  "inputToolbar": {
+    "default": "ডিফল্ট",
+    "attachFile": "ফাইল সংযুক্ত করুন",
+    "stopGeneration": "জেনারেশন থামান",
+    "sendingMessage": "বার্তা পাঠানো হচ্ছে",
+    "sendMessage": "বার্তা পাঠান"
+  },
+  "inputFooter": {
+    "autoApproveOff": "Auto-approve: বন্ধ",
+    "autoApproveSession": "Auto-approve: এই সেশন · সব সেশনের জন্য ক্লিক করুন",
+    "autoApproveGlobal": "Auto-approve: সব সেশন · নিষ্ক্রিয় করতে ক্লিক করুন",
+    "pleaseVerify": "অনুগ্রহ করে AI উত্তরের সত্যতা যাচাই করুন।",
+    "allTasksDone": "সব task সম্পন্ন",
+    "remaining": "{{count}} বাকি",
+    "allDone": "সব সম্পন্ন",
+    "tasksCount": "{{done}} / {{total}} task",
+    "greatWork": "দারুণ কাজ!",
+    "inProgress": "{{count}} চলছে"
+  },
+  "inputActions": {
+    "scrollToBottom": "নিচে স্ক্রল করুন",
+    "reply": "উত্তর দিন..."
+  },
+  "undoStatus": {
+    "editing": "সম্পাদনা হচ্ছে",
+    "redo": "Redo",
+    "redoAll": "সব Redo"
+  },
+  "sidebar": {
+    "allProjects": "সব প্রকল্প",
+    "global": "Global",
+    "globalProjectHint": "Non-Git workspace, সাধারণত যেখানে Pi Agent শুরু হয়েছে",
+    "collapseSidebar": "সাইডবার সংকুচিত করুন",
+    "expandSidebar": "সাইডবার প্রসারিত করুন",
+    "newChat": "নতুন চ্যাট",
+    "addProject": "প্রকল্প যোগ করুন...",
+    "searchChats": "চ্যাট অনুসন্ধান...",
+    "clearSearch": "অনুসন্ধান পরিষ্কার করুন",
+    "recents": "সাম্প্রতিক",
+    "active": "সক্রিয়",
+    "noActiveSessions": "কোনো সক্রিয় সেশন নেই",
+    "notifications": "নোটিফিকেশন",
+    "readAll": "সব পড়ুন",
+    "removeProject": "প্রকল্প সরান",
+    "removeProjectConfirm": "তালিকা থেকে এই প্রকল্প ফোল্ডারটি সরাবেন? ফাইল মুছে ফেলা হবে না।",
+    "contextUsage": "Context ব্যবহার",
+    "viewDetails": "বিস্তারিত দেখুন",
+    "contextSourceLabel": "উৎস",
+    "contextSource": {
+      "runtime": "runtime",
+      "tokens": "শেষ tokens",
+      "estimated": "আনুমানিক"
+    },
+    "contextNotice": {
+      "compacted": "Context compact করা হয়েছে; পরবর্তী মডেল উত্তর না আসা পর্যন্ত সঠিক ব্যবহার অজানা।",
+      "warning": "Context 70%-এর বেশি। শিগগির compact করার কথা বিবেচনা করুন।",
+      "danger": "Context 90%-এর বেশি। শিগগির compaction হতে পারে।"
+    },
+    "appearance": "Appearance",
+    "standardWidth": "স্ট্যান্ডার্ড প্রস্থ",
+    "wideMode": "Wide Mode",
+    "shareChat": "চ্যাট শেয়ার করুন",
+    "settings": "সেটিংস",
+    "noProjectFoldersYet": "এখনও কোনো প্রকল্প ফোল্ডার নেই",
+    "addProjectDesc": "ফোল্ডার অনুযায়ী সাম্প্রতিক চ্যাট দেখতে একটি প্রকল্প যোগ করুন।",
+    "deleteChat": "চ্যাট মুছুন",
+    "deleteChatConfirm": "আপনি কি এই চ্যাট মুছতে নিশ্চিত? এই কাজটি ফিরিয়ে নেওয়া যাবে না।",
+    "moveFolderUp": "ফোল্ডার উপরে সরান",
+    "moveFolderDown": "ফোল্ডার নিচে সরান",
+    "noChatsInFolder": "এই ফোল্ডারে কোনো চ্যাট নেই",
+    "showMoreChats": "আরও চ্যাট দেখান",
+    "selectedSessions": "{{count}} সেশন নির্বাচিত",
+    "selectedProjects": "{{count}} প্রকল্প নির্বাচিত",
+    "selectItems": "পরিচালনার জন্য আইটেম নির্বাচন করুন",
+    "deleteSessions": "{{count}} সেশন মুছুন",
+    "removeProjects": "{{count}} প্রকল্প সরান",
+    "batchDeleteSessions": "{{count}} সেশন মুছুন",
+    "batchDeleteSessionsConfirm": "আপনি কি {{count}} সেশন মুছতে নিশ্চিত? এই কাজটি ফিরিয়ে নেওয়া যাবে না।",
+    "batchDeleteIncludesCurrent": "বর্তমানে খোলা সেশনটি অন্তর্ভুক্ত আছে। মুছে ফেলার পরে এটি নতুন সেশনে চলে যাবে।",
+    "batchRemoveProjects": "{{count}} প্রকল্প সরান",
+    "batchRemoveProjectsConfirm": "তালিকা থেকে {{count}} প্রকল্প সরাবেন? এটি শুধু সাইডবার থেকে সরায় — কোনো সেশন মুছবে না এবং ডিস্কের ফাইলে প্রভাব পড়বে না।"
+  },
+  "activeSession": {
+    "awaitingPermission": "অনুমতির অপেক্ষায়",
+    "awaitingAnswer": "উত্তরের অপেক্ষায়",
+    "retrying": "আবার চেষ্টা হচ্ছে",
+    "working": "কাজ চলছে",
+    "attempt": "চেষ্টা {{count}}"
+  },
+  "notification": {
+    "completed": "সম্পন্ন",
+    "error": "ত্রুটি",
+    "permission": "অনুমতি",
+    "question": "প্রশ্ন"
+  },
+  "contextDetails": {
+    "context": "Context",
+    "session": "সেশন",
+    "messages": "বার্তা",
+    "provider": "Provider",
+    "model": "মডেল",
+    "contextLimit": "Context সীমা",
+    "totalTokens": "মোট Tokens",
+    "usage": "ব্যবহার",
+    "source": "উৎস",
+    "sources": {
+      "runtime": "Runtime",
+      "tokens": "শেষ token রিপোর্ট",
+      "estimated": "লোকাল অনুমান"
+    },
+    "notices": {
+      "compacted": "Pi এই সেশন compact করেছে। পরবর্তী মডেল উত্তর না আসা পর্যন্ত সঠিক context ব্যবহার অজানা।",
+      "warning": "Context ব্যবহার বেশি। শিগগির compaction উপকারী হতে পারে।",
+      "danger": "Context ব্যবহার সংকটজনক। Pi-কে compact করতে বা খুব বড় পরবর্তী turn প্রত্যাখ্যান করতে হতে পারে।"
+    },
+    "totalCost": "মোট খরচ",
+    "inputTokens": "ইনপুট",
+    "outputTokens": "আউটপুট",
+    "reasoning": "Reasoning",
+    "cacheRW": "Cache (r/w)",
+    "modelMetadata": "মডেল metadata",
+    "openRouterMetadataSource": "শুধু OpenRouter catalog — runtime provider Pi-ই থাকে।",
+    "catalogContext": "Catalog Context",
+    "maxOutput": "সর্বোচ্চ আউটপুট",
+    "modalities": "Modalities",
+    "pricing": "Pricing in/out",
+    "cacheRead": "Cache Read",
+    "tokenizer": "Tokenizer",
+    "moderated": "Moderated",
+    "features": "Features",
+    "rawMessages": "Raw Messages"
+  },
+  "hints": {
+    "pressEscAgain": "থামাতে আবার <1>Esc</1> চাপুন",
+    "autoApproveAll": "Auto-approve: সব সেশন",
+    "autoApproveSession": "Auto-approve: এই সেশন",
+    "autoApproveOffHint": "Auto-approve: বন্ধ"
+  }
+}

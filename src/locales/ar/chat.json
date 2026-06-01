@@ -1,0 +1,228 @@
+{
+  "header": {
+    "openCode": "PiAgentUI",
+    "newChat": "دردشة جديدة",
+    "openSidebar": "فتح الشريط الجانبي",
+    "clickToRename": "انقر لإعادة التسمية",
+    "shareSession": "مشاركة الجلسة",
+    "closeBottomPanel": "إغلاق اللوحة السفلية",
+    "openBottomPanel": "فتح اللوحة السفلية",
+    "closePanel": "إغلاق اللوحة",
+    "openPanel": "فتح اللوحة"
+  },
+  "chatArea": {
+    "loadingSession": "جارٍ تحميل الجلسة...",
+    "loadingHistory": "جارٍ تحميل السجل..."
+  },
+  "emptyState": {
+    "title": "ابدأ محادثة جديدة",
+    "description": "اختر دليل عمل لهذه الجلسة",
+    "workingDirectory": "دليل العمل",
+    "enterAbsolutePath": "أدخل مسارًا مطلقًا...",
+    "backToDirectoryList": "العودة إلى قائمة الأدلة",
+    "selectDirectory": "حدد دليلًا...",
+    "current": "(الحالي)",
+    "enterCustomPath": "أدخل مسارًا مخصصًا...",
+    "startConversation": "بدء المحادثة",
+    "orJustType": "أو اكتب رسالة أدناه للبدء بالدليل الحالي"
+  },
+  "inputBox": {
+    "dropFilesHere": "أفلت الملفات هنا",
+    "replyToAgentMobile": "رد على Agent...",
+    "replyToAgent": "رد على Agent (اكتب @ للإشارة، أو / للأوامر)"
+  },
+  "modelSelector": {
+    "selectModel": "تحديد النموذج",
+    "searchModels": "البحث في النماذج...",
+    "noModelsFound": "لم يتم العثور على نماذج",
+    "tryDifferentKeyword": "جرّب كلمة مفتاحية مختلفة",
+    "pinned": "مثبتة",
+    "recent": "حديثة",
+    "thinking": "تفكير",
+    "vision": "رؤية",
+    "unpin": "إلغاء التثبيت",
+    "pinToTop": "تثبيت في الأعلى",
+    "model": "نموذج"
+  },
+  "retryStatus": {
+    "retrying": "جارٍ إعادة المحاولة (المحاولة {{attempt}})",
+    "nextIn": "التالي خلال {{label}}"
+  },
+  "shareDialog": {
+    "title": "مشاركة الدردشة",
+    "publicLink": "رابط عام",
+    "publicLinkDesc": "يمكن لأي شخص لديه هذا الرابط عرض جلسة الدردشة هذه.",
+    "failedCreate": "فشل إنشاء رابط المشاركة",
+    "failedRemove": "فشل إزالة رابط المشاركة",
+    "copyLink": "نسخ الرابط",
+    "stopSharing": "إيقاف المشاركة",
+    "createPublicLink": "إنشاء رابط عام",
+    "creatingLink": "جارٍ إنشاء الرابط..."
+  },
+  "questionDialog": {
+    "title": "سؤال",
+    "moreCount": "+{{count}} أخرى",
+    "minimize": "تصغير",
+    "typeYourAnswer": "اكتب إجابتك..."
+  },
+  "permissionDialog": {
+    "permission": "الإذن: {{permission}}",
+    "moreCount": "+{{count}} أخرى",
+    "minimize": "تصغير",
+    "fromSubtask": "من المهمة الفرعية: {{title}}",
+    "changesPreview": "معاينة التغييرات",
+    "request": "طلب",
+    "rule": "قاعدة",
+    "allowOnce": "السماح مرة واحدة",
+    "alwaysAllow": "السماح دائمًا",
+    "subtaskFallback": "مهمة فرعية",
+    "browserSession": "جلسة المتصفح",
+    "thisSession": "هذه الجلسة",
+    "autoApproveEnabled": "الموافقة التلقائية مفعلة. حدّث المتصفح لإعادة تعيين الأذونات.",
+    "changePermissionSettings": "يمكنك تغيير إعدادات الأذونات في أي وقت."
+  },
+  "projectDialog": {
+    "typePath": "اكتب المسار...",
+    "parent": ".. (الأصل)",
+    "noMatchingFolders": "لا توجد مجلدات مطابقة",
+    "addCurrent": "إضافة الحالي"
+  },
+  "inputToolbar": {
+    "default": "افتراضي",
+    "attachFile": "إرفاق ملف",
+    "stopGeneration": "إيقاف التوليد",
+    "sendingMessage": "جارٍ إرسال الرسالة",
+    "sendMessage": "إرسال الرسالة"
+  },
+  "inputFooter": {
+    "autoApproveOff": "الموافقة التلقائية: متوقفة",
+    "autoApproveSession": "الموافقة التلقائية: هذه الجلسة · انقر لكل الجلسات",
+    "autoApproveGlobal": "الموافقة التلقائية: كل الجلسات · انقر للتعطيل",
+    "pleaseVerify": "يرجى التحقق من ردود AI.",
+    "allTasksDone": "اكتملت كل المهام",
+    "remaining": "{{count}} متبقية",
+    "allDone": "اكتمل الكل",
+    "tasksCount": "{{done}} من {{total}} مهام",
+    "greatWork": "عمل رائع!",
+    "inProgress": "{{count}} قيد التنفيذ"
+  },
+  "inputActions": {
+    "scrollToBottom": "التمرير إلى الأسفل",
+    "reply": "رد..."
+  },
+  "undoStatus": {
+    "editing": "جارٍ التحرير",
+    "redo": "إعادة",
+    "redoAll": "إعادة الكل"
+  },
+  "sidebar": {
+    "allProjects": "كل المشاريع",
+    "global": "عام",
+    "globalProjectHint": "مساحة عمل غير Git، عادةً حيث بدأ Pi Agent",
+    "collapseSidebar": "طي الشريط الجانبي",
+    "expandSidebar": "توسيع الشريط الجانبي",
+    "newChat": "دردشة جديدة",
+    "addProject": "إضافة مشروع...",
+    "searchChats": "البحث في الدردشات...",
+    "clearSearch": "مسح البحث",
+    "recents": "الحديثة",
+    "active": "نشطة",
+    "noActiveSessions": "لا توجد جلسات نشطة",
+    "notifications": "الإشعارات",
+    "readAll": "قراءة الكل",
+    "removeProject": "إزالة المشروع",
+    "removeProjectConfirm": "إزالة مجلد المشروع هذا من القائمة؟ لن تُحذف الملفات.",
+    "contextUsage": "استخدام السياق",
+    "viewDetails": "عرض التفاصيل",
+    "contextSourceLabel": "المصدر",
+    "contextSource": {
+      "runtime": "وقت التشغيل",
+      "tokens": "آخر رموز",
+      "estimated": "مقدر"
+    },
+    "contextNotice": {
+      "compacted": "تم ضغط السياق؛ الاستخدام الدقيق غير معروف حتى الرد التالي من النموذج.",
+      "warning": "السياق أعلى من 70%. فكّر في الضغط قريبًا.",
+      "danger": "السياق أعلى من 90%. قد يحدث الضغط قريبًا."
+    },
+    "appearance": "المظهر",
+    "standardWidth": "العرض القياسي",
+    "wideMode": "الوضع العريض",
+    "shareChat": "مشاركة الدردشة",
+    "settings": "الإعدادات",
+    "noProjectFoldersYet": "لا توجد مجلدات مشاريع بعد",
+    "addProjectDesc": "أضف مشروعًا لتصفح الدردشات الحديثة حسب المجلد.",
+    "deleteChat": "حذف الدردشة",
+    "deleteChatConfirm": "هل أنت متأكد أنك تريد حذف هذه الدردشة؟ لا يمكن التراجع عن هذا الإجراء.",
+    "moveFolderUp": "نقل المجلد للأعلى",
+    "moveFolderDown": "نقل المجلد للأسفل",
+    "noChatsInFolder": "لا توجد دردشات في هذا المجلد",
+    "showMoreChats": "عرض المزيد من الدردشات",
+    "selectedSessions": "تم تحديد {{count}} جلسة/جلسات",
+    "selectedProjects": "تم تحديد {{count}} مشروع/مشاريع",
+    "selectItems": "حدد عناصر لإدارتها",
+    "deleteSessions": "حذف {{count}} جلسة/جلسات",
+    "removeProjects": "إزالة {{count}} مشروع/مشاريع",
+    "batchDeleteSessions": "حذف {{count}} جلسة/جلسات",
+    "batchDeleteSessionsConfirm": "هل أنت متأكد أنك تريد حذف {{count}} جلسة/جلسات؟ لا يمكن التراجع عن هذا الإجراء.",
+    "batchDeleteIncludesCurrent": "الجلسة المفتوحة حاليًا مشمولة. سيتم التبديل إلى جلسة جديدة بعد الحذف.",
+    "batchRemoveProjects": "إزالة {{count}} مشروع/مشاريع",
+    "batchRemoveProjectsConfirm": "إزالة {{count}} مشروع/مشاريع من القائمة؟ هذا يزيلها فقط من الشريط الجانبي — لن تُحذف أي جلسات أو ملفات على القرص."
+  },
+  "activeSession": {
+    "awaitingPermission": "بانتظار الإذن",
+    "awaitingAnswer": "بانتظار الإجابة",
+    "retrying": "جارٍ إعادة المحاولة",
+    "working": "يعمل",
+    "attempt": "المحاولة {{count}}"
+  },
+  "notification": {
+    "completed": "مكتمل",
+    "error": "خطأ",
+    "permission": "إذن",
+    "question": "سؤال"
+  },
+  "contextDetails": {
+    "context": "السياق",
+    "session": "الجلسة",
+    "messages": "الرسائل",
+    "provider": "الموفر",
+    "model": "النموذج",
+    "contextLimit": "حد السياق",
+    "totalTokens": "إجمالي الرموز",
+    "usage": "الاستخدام",
+    "source": "المصدر",
+    "sources": {
+      "runtime": "وقت التشغيل",
+      "tokens": "آخر تقرير رموز",
+      "estimated": "تقدير محلي"
+    },
+    "notices": {
+      "compacted": "ضغط Pi هذه الجلسة. الاستخدام الدقيق للسياق غير معروف حتى الرد التالي من النموذج.",
+      "warning": "استخدام السياق مرتفع. قد يكون الضغط مفيدًا قريبًا.",
+      "danger": "استخدام السياق حرج. قد يحتاج Pi إلى الضغط أو رفض الجولة التالية الكبيرة جدًا."
+    },
+    "totalCost": "التكلفة الإجمالية",
+    "inputTokens": "الإدخال",
+    "outputTokens": "الإخراج",
+    "reasoning": "التفكير",
+    "cacheRW": "الذاكرة المؤقتة (قراءة/كتابة)",
+    "modelMetadata": "بيانات تعريف النموذج",
+    "openRouterMetadataSource": "كتالوج OpenRouter فقط — يظل موفر وقت التشغيل Pi.",
+    "catalogContext": "سياق الكتالوج",
+    "maxOutput": "أقصى إخراج",
+    "modalities": "الوسائط",
+    "pricing": "التسعير إدخال/إخراج",
+    "cacheRead": "قراءة الذاكرة المؤقتة",
+    "tokenizer": "Tokenizer",
+    "moderated": "خاضع للإشراف",
+    "features": "الميزات",
+    "rawMessages": "الرسائل الخام"
+  },
+  "hints": {
+    "pressEscAgain": "اضغط <1>Esc</1> مرة أخرى للإيقاف",
+    "autoApproveAll": "الموافقة التلقائية: كل الجلسات",
+    "autoApproveSession": "الموافقة التلقائية: هذه الجلسة",
+    "autoApproveOffHint": "الموافقة التلقائية: متوقفة"
+  }
+}

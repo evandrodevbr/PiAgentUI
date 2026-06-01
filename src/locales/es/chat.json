@@ -1,0 +1,228 @@
+{
+  "header": {
+    "openCode": "PiAgentUI",
+    "newChat": "Nuevo chat",
+    "openSidebar": "Abrir barra lateral",
+    "clickToRename": "Haz clic para renombrar",
+    "shareSession": "Compartir sesión",
+    "closeBottomPanel": "Cerrar panel inferior",
+    "openBottomPanel": "Abrir panel inferior",
+    "closePanel": "Cerrar panel",
+    "openPanel": "Abrir panel"
+  },
+  "chatArea": {
+    "loadingSession": "Cargando sesión...",
+    "loadingHistory": "Cargando historial..."
+  },
+  "emptyState": {
+    "title": "Inicia una nueva conversación",
+    "description": "Elige un directorio de trabajo para esta sesión",
+    "workingDirectory": "Directorio de trabajo",
+    "enterAbsolutePath": "Introduce una ruta absoluta...",
+    "backToDirectoryList": "Volver a la lista de directorios",
+    "selectDirectory": "Seleccionar directorio...",
+    "current": "(actual)",
+    "enterCustomPath": "Introduce una ruta personalizada...",
+    "startConversation": "Iniciar conversación",
+    "orJustType": "O simplemente escribe un mensaje abajo para iniciar con el directorio actual"
+  },
+  "inputBox": {
+    "dropFilesHere": "Suelta archivos aquí",
+    "replyToAgentMobile": "Responder al agente...",
+    "replyToAgent": "Responder al agente (escribe @ para mencionar, / para comandos)"
+  },
+  "modelSelector": {
+    "selectModel": "Seleccionar modelo",
+    "searchModels": "Buscar modelos...",
+    "noModelsFound": "No se encontraron modelos",
+    "tryDifferentKeyword": "Prueba con otra palabra clave",
+    "pinned": "Fijados",
+    "recent": "Recientes",
+    "thinking": "Razonamiento",
+    "vision": "Visión",
+    "unpin": "Desfijar",
+    "pinToTop": "Fijar arriba",
+    "model": "Modelo"
+  },
+  "retryStatus": {
+    "retrying": "Reintentando (intento {{attempt}})",
+    "nextIn": "siguiente en {{label}}"
+  },
+  "shareDialog": {
+    "title": "Compartir chat",
+    "publicLink": "Enlace público",
+    "publicLinkDesc": "Cualquier persona con este enlace puede ver esta sesión de chat.",
+    "failedCreate": "No se pudo crear el enlace para compartir",
+    "failedRemove": "No se pudo quitar el enlace para compartir",
+    "copyLink": "Copiar enlace",
+    "stopSharing": "Dejar de compartir",
+    "createPublicLink": "Crear enlace público",
+    "creatingLink": "Creando enlace..."
+  },
+  "questionDialog": {
+    "title": "Pregunta",
+    "moreCount": "+{{count}} más",
+    "minimize": "Minimizar",
+    "typeYourAnswer": "Escribe tu propia respuesta..."
+  },
+  "permissionDialog": {
+    "permission": "Permiso: {{permission}}",
+    "moreCount": "+{{count}} más",
+    "minimize": "Minimizar",
+    "fromSubtask": "De subtarea: {{title}}",
+    "changesPreview": "Vista previa de cambios",
+    "request": "Solicitud",
+    "rule": "Regla",
+    "allowOnce": "Permitir una vez",
+    "alwaysAllow": "Permitir siempre",
+    "subtaskFallback": "Subtarea",
+    "browserSession": "Sesión del navegador",
+    "thisSession": "Esta sesión",
+    "autoApproveEnabled": "Aprobación automática activada. Actualiza el navegador para restablecer los permisos.",
+    "changePermissionSettings": "Puedes cambiar la configuración de permisos en cualquier momento."
+  },
+  "projectDialog": {
+    "typePath": "Escribe una ruta...",
+    "parent": ".. (Superior)",
+    "noMatchingFolders": "No hay carpetas coincidentes",
+    "addCurrent": "Añadir actual"
+  },
+  "inputToolbar": {
+    "default": "Predeterminado",
+    "attachFile": "Adjuntar archivo",
+    "stopGeneration": "Detener generación",
+    "sendingMessage": "Enviando mensaje",
+    "sendMessage": "Enviar mensaje"
+  },
+  "inputFooter": {
+    "autoApproveOff": "Aprobación automática: desactivada",
+    "autoApproveSession": "Aprobación automática: esta sesión · clic para todas las sesiones",
+    "autoApproveGlobal": "Aprobación automática: todas las sesiones · clic para desactivar",
+    "pleaseVerify": "Verifica las respuestas de IA.",
+    "allTasksDone": "Todas las tareas listas",
+    "remaining": "quedan {{count}}",
+    "allDone": "Todo listo",
+    "tasksCount": "{{done}} de {{total}} tareas",
+    "greatWork": "¡Buen trabajo!",
+    "inProgress": "{{count}} en curso"
+  },
+  "inputActions": {
+    "scrollToBottom": "Desplazarse al final",
+    "reply": "Responder..."
+  },
+  "undoStatus": {
+    "editing": "Editando",
+    "redo": "Rehacer",
+    "redoAll": "Rehacer todo"
+  },
+  "sidebar": {
+    "allProjects": "Todos los proyectos",
+    "global": "Global",
+    "globalProjectHint": "Espacio de trabajo no Git, normalmente donde se inició Pi Agent",
+    "collapseSidebar": "Contraer barra lateral",
+    "expandSidebar": "Expandir barra lateral",
+    "newChat": "Nuevo chat",
+    "addProject": "Añadir proyecto...",
+    "searchChats": "Buscar chats...",
+    "clearSearch": "Limpiar búsqueda",
+    "recents": "Recientes",
+    "active": "Activas",
+    "noActiveSessions": "No hay sesiones activas",
+    "notifications": "Notificaciones",
+    "readAll": "Leer todas",
+    "removeProject": "Quitar proyecto",
+    "removeProjectConfirm": "¿Quitar esta carpeta de proyecto de la lista? Los archivos no se eliminarán.",
+    "contextUsage": "Uso de contexto",
+    "viewDetails": "Ver detalles",
+    "contextSourceLabel": "Fuente",
+    "contextSource": {
+      "runtime": "runtime",
+      "tokens": "últimos tokens",
+      "estimated": "estimado"
+    },
+    "contextNotice": {
+      "compacted": "El contexto fue compactado; el uso exacto se desconoce hasta la próxima respuesta del modelo.",
+      "warning": "El contexto supera el 70%. Considera compactarlo pronto.",
+      "danger": "El contexto supera el 90%. La compactación podría ocurrir pronto."
+    },
+    "appearance": "Apariencia",
+    "standardWidth": "Ancho estándar",
+    "wideMode": "Modo ancho",
+    "shareChat": "Compartir chat",
+    "settings": "Configuración",
+    "noProjectFoldersYet": "Aún no hay carpetas de proyecto",
+    "addProjectDesc": "Añade un proyecto para explorar chats recientes por carpeta.",
+    "deleteChat": "Eliminar chat",
+    "deleteChatConfirm": "¿Seguro que quieres eliminar este chat? Esta acción no se puede deshacer.",
+    "moveFolderUp": "Mover carpeta arriba",
+    "moveFolderDown": "Mover carpeta abajo",
+    "noChatsInFolder": "No hay chats en esta carpeta",
+    "showMoreChats": "Mostrar más chats",
+    "selectedSessions": "{{count}} sesión(es) seleccionada(s)",
+    "selectedProjects": "{{count}} proyecto(s) seleccionado(s)",
+    "selectItems": "Selecciona elementos para administrar",
+    "deleteSessions": "Eliminar {{count}} sesión(es)",
+    "removeProjects": "Quitar {{count}} proyecto(s)",
+    "batchDeleteSessions": "Eliminar {{count}} sesión(es)",
+    "batchDeleteSessionsConfirm": "¿Seguro que quieres eliminar {{count}} sesión(es)? Esta acción no se puede deshacer.",
+    "batchDeleteIncludesCurrent": "La sesión abierta actualmente está incluida. Cambiará a una nueva sesión después de la eliminación.",
+    "batchRemoveProjects": "Quitar {{count}} proyecto(s)",
+    "batchRemoveProjectsConfirm": "¿Quitar {{count}} proyecto(s) de la lista? Esto solo los quita de la barra lateral — no se eliminarán sesiones ni se afectarán archivos en disco."
+  },
+  "activeSession": {
+    "awaitingPermission": "Esperando permiso",
+    "awaitingAnswer": "Esperando respuesta",
+    "retrying": "Reintentando",
+    "working": "Trabajando",
+    "attempt": "intento {{count}}"
+  },
+  "notification": {
+    "completed": "Completado",
+    "error": "Error",
+    "permission": "Permiso",
+    "question": "Pregunta"
+  },
+  "contextDetails": {
+    "context": "Contexto",
+    "session": "Sesión",
+    "messages": "Mensajes",
+    "provider": "Proveedor",
+    "model": "Modelo",
+    "contextLimit": "Límite de contexto",
+    "totalTokens": "Tokens totales",
+    "usage": "Uso",
+    "source": "Fuente",
+    "sources": {
+      "runtime": "Runtime",
+      "tokens": "Último informe de tokens",
+      "estimated": "Estimación local"
+    },
+    "notices": {
+      "compacted": "Pi compactó esta sesión. El uso exacto de contexto se desconoce hasta la próxima respuesta del modelo.",
+      "warning": "El uso de contexto es alto. Una compactación podría ser útil pronto.",
+      "danger": "El uso de contexto es crítico. Pi podría necesitar compactar o rechazar un próximo turno muy grande."
+    },
+    "totalCost": "Costo total",
+    "inputTokens": "Entrada",
+    "outputTokens": "Salida",
+    "reasoning": "Razonamiento",
+    "cacheRW": "Cache (l/e)",
+    "modelMetadata": "Metadatos del modelo",
+    "openRouterMetadataSource": "Solo catálogo OpenRouter — el proveedor en runtime sigue siendo Pi.",
+    "catalogContext": "Contexto del catálogo",
+    "maxOutput": "Salida máx.",
+    "modalities": "Modalidades",
+    "pricing": "Precio entrada/salida",
+    "cacheRead": "Cache leído",
+    "tokenizer": "Tokenizador",
+    "moderated": "Moderado",
+    "features": "Funciones",
+    "rawMessages": "Mensajes sin procesar"
+  },
+  "hints": {
+    "pressEscAgain": "Pulsa <1>Esc</1> otra vez para detener",
+    "autoApproveAll": "Aprobación automática: todas las sesiones",
+    "autoApproveSession": "Aprobación automática: esta sesión",
+    "autoApproveOffHint": "Aprobación automática: desactivada"
+  }
+}

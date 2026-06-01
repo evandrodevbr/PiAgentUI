@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#262524" />
+      <stop offset="100%" stop-color="#121212" />
+    </linearGradient>
+    <linearGradient id="pi-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+  <!-- Circular Background -->
+  <circle cx="256" cy="256" r="256" fill="url(#bg-grad)"/>
+  <!-- Sleek Pi symbol -->
+  <path d="M160 180h192v24M200 204v116c0 12-10 20-20 20s-20-8-20-20M312 204v128c0 10 8 18 18 18s18-8 18-18" stroke="url(#pi-grad)" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

@@ -1,0 +1,215 @@
+{
+  "commandPalette": {
+    "placeholder": "اكتب أمرًا...",
+    "noCommandsFound": "لم يتم العثور على أوامر"
+  },
+  "fileExplorer": {
+    "selectProject": "حدد مشروعًا لتصفح الملفات",
+    "explorer": "المستكشف",
+    "noFilesFound": "لم يتم العثور على ملفات",
+    "failedToLoadFiles": "فشل تحميل الملفات",
+    "failedToLoadFile": "فشل تحميل الملف",
+    "binaryFile": "ملف ثنائي — المعاينة غير متاحة",
+    "fit": "ملاءمة",
+    "oneToOne": "1:1"
+  },
+  "terminal": {
+    "terminal": "الطرفية",
+    "newTerminal": "طرفية جديدة",
+    "hidePanel": "إخفاء اللوحة",
+    "restoringSessions": "جارٍ استعادة الجلسات...",
+    "noTerminals": "لا توجد طرفيات",
+    "createTerminal": "إنشاء طرفية",
+    "closeTerminal": "إغلاق الطرفية"
+  },
+  "diffViewer": {
+    "noChanges": "لا توجد تغييرات",
+    "linesUnchanged": "{{count}} أسطر غير متغيرة"
+  },
+  "rightPanel": {
+    "loadingPanel": "جارٍ تحميل اللوحة...",
+    "noActiveSession": "لا توجد جلسة نشطة"
+  },
+  "bottomPanel": {
+    "loadingPanel": "جارٍ تحميل اللوحة..."
+  },
+  "panelContainer": {
+    "files": "الملفات",
+    "changes": "التغييرات",
+    "mcp": "MCP",
+    "skills": "المهارات",
+    "worktrees": "Worktrees",
+    "extensions": "الإضافات",
+    "tab": "تبويب",
+    "addTab": "إضافة تبويب",
+    "renameTerminal": "إعادة تسمية الطرفية",
+    "moveToRight": "نقل إلى اللوحة اليمنى",
+    "moveToBottom": "نقل إلى اللوحة السفلية",
+    "mcpServers": "خوادم MCP"
+  },
+  "sessionChanges": {
+    "loadingChanges": "جارٍ تحميل التغييرات...",
+    "failedToLoad": "فشل تحميل التغييرات",
+    "failedToInitGit": "فشل تهيئة مستودع Git",
+    "mode": "وضع التغيير",
+    "modeHint": "نطاق المراجعة",
+    "noChanges": "لا توجد تغييرات في هذه الجلسة",
+    "noGitChanges": "لا توجد تغييرات غير ملتزم بها بعد",
+    "noBranchChanges": "لا توجد تغييرات في الفرع بعد",
+    "noTurnChanges": "لا توجد تغييرات في الجولة الحالية",
+    "noGit": "لم يتم اكتشاف مستودع Git",
+    "noGitHint": "قم بتهيئة Git لبدء تتبع تغييرات الجلسة والجولة الحالية",
+    "initGit": "تهيئة مستودع Git",
+    "initializingGit": "جارٍ التهيئة...",
+    "fileCount_one": "{{count}} ملف",
+    "fileCount_other": "{{count}} ملفات",
+    "fileCountCompact": "{{count}}f",
+    "gitScope": "تغييرات Git",
+    "gitScopeHint": "ملفات غير ملتزم بها في شجرة العمل",
+    "branchScope": "تغييرات الفرع",
+    "branchScopeHint": "كل التغييرات على هذا الفرع منذ {{branch}}",
+    "sessionScope": "تغييرات الجلسة",
+    "sessionScopeHint": "كل ما تغير أثناء هذه الجلسة",
+    "turnScope": "تغييرات آخر جولة",
+    "turnScopeHint": "فقط الملفات التي تغيرت في آخر جولة للمساعد",
+    "list": "قائمة",
+    "flatList": "قائمة مسطحة",
+    "tree": "شجرة",
+    "treeView": "عرض شجري",
+    "unified": "موحد",
+    "split": "منقسم"
+  },
+  "mcpPanel": {
+    "title": "خوادم MCP",
+    "addServer": "إضافة خادم",
+    "loadingServers": "جارٍ تحميل الخوادم...",
+    "failedToLoad": "فشل تحميل خوادم MCP",
+    "noServers": "لم يتم تكوين خوادم MCP",
+    "addMcpServer": "إضافة خادم MCP",
+    "local": "محلي",
+    "remote": "بعيد",
+    "serverName": "اسم الخادم",
+    "commandPlaceholder": "الأمر (مثل npx -y @modelcontextprotocol/server-github)",
+    "urlPlaceholder": "عنوان URL للخادم (مثل https://mcp.example.com)",
+    "nameRequired": "اسم الخادم مطلوب",
+    "commandRequired": "الأمر مطلوب",
+    "urlRequired": "عنوان URL مطلوب",
+    "failedToAdd": "فشل إضافة الخادم",
+    "connected": "متصل",
+    "configured": "مكوّن",
+    "disabled": "معطل",
+    "needsAuth": "يحتاج إلى مصادقة",
+    "needsRegistration": "يحتاج إلى تسجيل",
+    "disconnect": "قطع الاتصال",
+    "connect": "اتصال",
+    "authenticate": "مصادقة"
+  },
+  "skillPanel": {
+    "title": "المهارات",
+    "filterPlaceholder": "تصفية المهارات...",
+    "loadingSkills": "جارٍ تحميل المهارات...",
+    "failedToLoad": "فشل تحميل المهارات",
+    "noSkills": "لم يتم العثور على مهارات",
+    "sources": {
+      "global": "عام",
+      "project": "مشروع",
+      "package": "حزمة",
+      "other": "أخرى"
+    }
+  },
+  "extensionPanel": {
+    "title": "الإضافات",
+    "filterPlaceholder": "تصفية الإضافات...",
+    "loadingExtensions": "جارٍ تحميل الإضافات...",
+    "failedToLoad": "فشل تحميل الإضافات",
+    "failedToInstall": "فشل تثبيت الإضافة",
+    "failedToUninstall": "فشل إلغاء تثبيت الإضافة",
+    "noExtensions": "لم يتم العثور على إضافات",
+    "installTitle": "تثبيت إضافة",
+    "installDescription": "الصق أمر تثبيت Pi آمنًا. لا تُقبل إلا أوامر pi install.",
+    "installCommandLabel": "أمر التثبيت",
+    "installAction": "تثبيت الإضافة",
+    "install": "تثبيت",
+    "reloadRequired": "أعد تحميل Pi Agent لتطبيق تغييرات الإضافات.",
+    "uninstall": "إلغاء التثبيت",
+    "uninstallLabel": "إلغاء تثبيت {{name}}",
+    "uninstallConfirm": "إلغاء تثبيت \"{{name}}\" من إعدادات Pi Agent؟",
+    "filtered": "مصفّى",
+    "resourceActive": "نشط",
+    "resourceInactive": "غير نشط",
+    "scopes": {
+      "project": "حزم المشروع",
+      "user": "حزم المستخدم"
+    },
+    "status": {
+      "active": "نشط",
+      "inactive": "غير نشط",
+      "missing": "مفقود",
+      "error": "خطأ"
+    },
+    "resourceTypes": {
+      "extensions": "الإضافات",
+      "skills": "المهارات",
+      "prompts": "المطالبات",
+      "themes": "السمات"
+    }
+  },
+  "worktreePanel": {
+    "selectProject": "حدد مشروعًا لإدارة worktrees",
+    "git": "Git",
+    "worktrees": "Worktrees",
+    "createWorktree": "إنشاء Worktree",
+    "loadingWorktrees": "جارٍ تحميل worktrees...",
+    "failedToLoad": "فشل تحميل worktrees",
+    "failedWithMessage": "فشل Worktree: {{message}}",
+    "failedToCreate": "فشل إنشاء worktree",
+    "failedToRemove": "فشل إزالة worktree",
+    "failedToReset": "فشل إعادة تعيين worktree",
+    "noWorktrees": "لم يتم العثور على worktrees",
+    "removeWorktree": "إزالة Worktree",
+    "removeWorktreeConfirm": "إزالة worktree \"{{name}}\"؟ سيؤدي ذلك إلى حذف دليل worktree.",
+    "resetWorktree": "إعادة تعيين Worktree",
+    "resetWorktreeConfirm": "إعادة تعيين worktree \"{{name}}\"؟ سيؤدي ذلك إلى تجاهل كل التغييرات غير الملتزم بها.",
+    "newWorktree": "Worktree جديد",
+    "worktreeNamePlaceholder": "اسم worktree (مثل feature-xyz)",
+    "openSessionAfter": "فتح جلسة بعد الإنشاء",
+    "openSession": "فتح جلسة في هذا worktree",
+    "resetWorktreeAction": "إعادة تعيين worktree",
+    "removeWorktreeAction": "إزالة worktree"
+  },
+  "toast": {
+    "clearAll": "مسح الكل"
+  },
+  "fullscreenViewer": {
+    "lines": "أسطر"
+  },
+  "desktopTitlebar": {
+    "goBack": "رجوع",
+    "goForward": "تقدم",
+    "openProject": "فتح مشروع",
+    "openSettings": "فتح الإعدادات",
+    "settingsUpdate": "يتوفر تحديث — افتح الإعدادات",
+    "newWindow": "نافذة جديدة"
+  },
+  "multiFileDiff": {
+    "sessionChanges": "تغييرات الجلسة",
+    "fileCount_one": "{{count}} ملف",
+    "fileCount_other": "{{count}} ملفات",
+    "failedToLoad": "فشل تحميل التغييرات",
+    "noChangesFound": "لم يتم العثور على تغييرات",
+    "selectFile": "حدد ملفًا لعرض التغييرات"
+  },
+  "closeService": {
+    "title": "إغلاق PiAgentUI",
+    "description": "تم تشغيل خدمة Pi Agent بواسطة هذا التطبيق. هل تريد إيقافها أيضًا؟",
+    "closeAndStop": "إغلاق الخدمة وإيقافها",
+    "closeKeepRunning": "إغلاق مع إبقاء الخدمة قيد التشغيل"
+  },
+  "contentBlock": {
+    "fullscreen": "ملء الشاشة",
+    "exitCode": "خروج {{code}}"
+  },
+  "diffView": {
+    "fullscreenView": "ملء الشاشة"
+  }
+}

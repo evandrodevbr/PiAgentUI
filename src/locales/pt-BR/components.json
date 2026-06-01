@@ -1,0 +1,215 @@
+{
+  "commandPalette": {
+    "placeholder": "Digite um comando...",
+    "noCommandsFound": "Nenhum comando encontrado"
+  },
+  "fileExplorer": {
+    "selectProject": "Selecione um projeto para navegar pelos arquivos",
+    "explorer": "Explorador",
+    "noFilesFound": "Nenhum arquivo encontrado",
+    "failedToLoadFiles": "Falha ao carregar arquivos",
+    "failedToLoadFile": "Falha ao carregar arquivo",
+    "binaryFile": "Arquivo binário — prévia indisponível",
+    "fit": "Ajustar",
+    "oneToOne": "1:1"
+  },
+  "terminal": {
+    "terminal": "Terminal",
+    "newTerminal": "Novo terminal",
+    "hidePanel": "Ocultar painel",
+    "restoringSessions": "Restaurando sessões...",
+    "noTerminals": "Nenhum terminal",
+    "createTerminal": "Criar terminal",
+    "closeTerminal": "Fechar terminal"
+  },
+  "diffViewer": {
+    "noChanges": "Sem alterações",
+    "linesUnchanged": "{{count}} linhas inalteradas"
+  },
+  "rightPanel": {
+    "loadingPanel": "Carregando painel...",
+    "noActiveSession": "Nenhuma sessão ativa"
+  },
+  "bottomPanel": {
+    "loadingPanel": "Carregando painel..."
+  },
+  "panelContainer": {
+    "files": "Arquivos",
+    "changes": "Alterações",
+    "mcp": "MCP",
+    "skills": "Skills",
+    "worktrees": "Worktrees",
+    "extensions": "Extensões",
+    "tab": "Aba",
+    "addTab": "Adicionar aba",
+    "renameTerminal": "Renomear terminal",
+    "moveToRight": "Mover para o painel direito",
+    "moveToBottom": "Mover para o painel inferior",
+    "mcpServers": "Servidores MCP"
+  },
+  "sessionChanges": {
+    "loadingChanges": "Carregando alterações...",
+    "failedToLoad": "Falha ao carregar alterações",
+    "failedToInitGit": "Falha ao inicializar repositório Git",
+    "mode": "Modo de alteração",
+    "modeHint": "Escopo da revisão",
+    "noChanges": "Sem alterações nesta sessão",
+    "noGitChanges": "Ainda não há alterações não commitadas",
+    "noBranchChanges": "Ainda não há alterações no branch",
+    "noTurnChanges": "Sem alterações no turno atual",
+    "noGit": "Nenhum repositório Git detectado",
+    "noGitHint": "Inicialize o Git para começar a rastrear alterações da sessão e do turno atual",
+    "initGit": "Inicializar repositório Git",
+    "initializingGit": "Inicializando...",
+    "fileCount_one": "{{count}} arquivo",
+    "fileCount_other": "{{count}} arquivos",
+    "fileCountCompact": "{{count}}a",
+    "gitScope": "Alterações Git",
+    "gitScopeHint": "Arquivos não commitados na árvore de trabalho",
+    "branchScope": "Alterações do branch",
+    "branchScopeHint": "Todas as alterações neste branch desde {{branch}}",
+    "sessionScope": "Alterações da sessão",
+    "sessionScopeHint": "Tudo que mudou durante esta sessão",
+    "turnScope": "Alterações do último turno",
+    "turnScopeHint": "Somente arquivos alterados no último turno do assistente",
+    "list": "Lista",
+    "flatList": "Lista plana",
+    "tree": "Árvore",
+    "treeView": "Visualização em árvore",
+    "unified": "Unificado",
+    "split": "Dividido"
+  },
+  "mcpPanel": {
+    "title": "Servidores MCP",
+    "addServer": "Adicionar servidor",
+    "loadingServers": "Carregando servidores...",
+    "failedToLoad": "Falha ao carregar servidores MCP",
+    "noServers": "Nenhum servidor MCP configurado",
+    "addMcpServer": "Adicionar servidor MCP",
+    "local": "Local",
+    "remote": "Remoto",
+    "serverName": "Nome do servidor",
+    "commandPlaceholder": "Comando (ex.: npx -y @modelcontextprotocol/server-github)",
+    "urlPlaceholder": "URL do servidor (ex.: https://mcp.example.com)",
+    "nameRequired": "O nome do servidor é obrigatório",
+    "commandRequired": "O comando é obrigatório",
+    "urlRequired": "A URL é obrigatória",
+    "failedToAdd": "Falha ao adicionar servidor",
+    "connected": "Conectado",
+    "configured": "Configurado",
+    "disabled": "Desativado",
+    "needsAuth": "Precisa de autenticação",
+    "needsRegistration": "Precisa de registro",
+    "disconnect": "Desconectar",
+    "connect": "Conectar",
+    "authenticate": "Autenticar"
+  },
+  "skillPanel": {
+    "title": "Skills",
+    "filterPlaceholder": "Filtrar skills...",
+    "loadingSkills": "Carregando skills...",
+    "failedToLoad": "Falha ao carregar skills",
+    "noSkills": "Nenhuma skill encontrada",
+    "sources": {
+      "global": "Global",
+      "project": "Projeto",
+      "package": "Pacote",
+      "other": "Outro"
+    }
+  },
+  "extensionPanel": {
+    "title": "Extensões",
+    "filterPlaceholder": "Filtrar extensões...",
+    "loadingExtensions": "Carregando extensões...",
+    "failedToLoad": "Falha ao carregar extensões",
+    "failedToInstall": "Falha ao instalar extensão",
+    "failedToUninstall": "Falha ao desinstalar extensão",
+    "noExtensions": "Nenhuma extensão encontrada",
+    "installTitle": "Instalar extensão",
+    "installDescription": "Cole um comando seguro de instalação do Pi. Somente comandos pi install são aceitos.",
+    "installCommandLabel": "Comando de instalação",
+    "installAction": "Instalar extensão",
+    "install": "Instalar",
+    "reloadRequired": "Recarregue o Pi Agent para aplicar as alterações de extensão.",
+    "uninstall": "Desinstalar",
+    "uninstallLabel": "Desinstalar {{name}}",
+    "uninstallConfirm": "Desinstalar \"{{name}}\" das configurações do Pi Agent?",
+    "filtered": "filtrado",
+    "resourceActive": "Ativo",
+    "resourceInactive": "Inativo",
+    "scopes": {
+      "project": "Pacotes do projeto",
+      "user": "Pacotes do usuário"
+    },
+    "status": {
+      "active": "Ativo",
+      "inactive": "Inativo",
+      "missing": "Ausente",
+      "error": "Erro"
+    },
+    "resourceTypes": {
+      "extensions": "Extensões",
+      "skills": "Skills",
+      "prompts": "Prompts",
+      "themes": "Temas"
+    }
+  },
+  "worktreePanel": {
+    "selectProject": "Selecione um projeto para gerenciar worktrees",
+    "git": "Git",
+    "worktrees": "Worktrees",
+    "createWorktree": "Criar worktree",
+    "loadingWorktrees": "Carregando worktrees...",
+    "failedToLoad": "Falha ao carregar worktrees",
+    "failedWithMessage": "Worktree falhou: {{message}}",
+    "failedToCreate": "Falha ao criar worktree",
+    "failedToRemove": "Falha ao remover worktree",
+    "failedToReset": "Falha ao redefinir worktree",
+    "noWorktrees": "Nenhuma worktree encontrada",
+    "removeWorktree": "Remover worktree",
+    "removeWorktreeConfirm": "Remover worktree \"{{name}}\"? Isso excluirá o diretório da worktree.",
+    "resetWorktree": "Redefinir worktree",
+    "resetWorktreeConfirm": "Redefinir worktree \"{{name}}\"? Isso descartará todas as alterações não commitadas.",
+    "newWorktree": "Nova worktree",
+    "worktreeNamePlaceholder": "Nome da worktree (ex.: feature-xyz)",
+    "openSessionAfter": "Abrir sessão após a criação",
+    "openSession": "Abrir sessão nesta worktree",
+    "resetWorktreeAction": "Redefinir worktree",
+    "removeWorktreeAction": "Remover worktree"
+  },
+  "toast": {
+    "clearAll": "Limpar tudo"
+  },
+  "fullscreenViewer": {
+    "lines": "linhas"
+  },
+  "desktopTitlebar": {
+    "goBack": "Voltar",
+    "goForward": "Avançar",
+    "openProject": "Abrir projeto",
+    "openSettings": "Abrir configurações",
+    "settingsUpdate": "Atualização disponível — abrir configurações",
+    "newWindow": "Nova janela"
+  },
+  "multiFileDiff": {
+    "sessionChanges": "Alterações da sessão",
+    "fileCount_one": "{{count}} arquivo",
+    "fileCount_other": "{{count}} arquivos",
+    "failedToLoad": "Falha ao carregar alterações",
+    "noChangesFound": "Nenhuma alteração encontrada",
+    "selectFile": "Selecione um arquivo para ver as alterações"
+  },
+  "closeService": {
+    "title": "Fechar PiAgentUI",
+    "description": "O serviço Pi Agent foi iniciado por este app. Deseja pará-lo também?",
+    "closeAndStop": "Fechar e parar serviço",
+    "closeKeepRunning": "Fechar, manter serviço em execução"
+  },
+  "contentBlock": {
+    "fullscreen": "Tela cheia",
+    "exitCode": "saída {{code}}"
+  },
+  "diffView": {
+    "fullscreenView": "Tela cheia"
+  }
+}
