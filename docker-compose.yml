@@ -18,7 +18,7 @@
 services:
   # ---- 统一入口：网关 ----
   gateway:
-    image: ghcr.io/lehhair/opencodeui-gateway:latest
+    image: ghcr.io/evandrodevbr/opencodeui-gateway:latest
     container_name: opencode-gateway
     restart: unless-stopped
     ports:
@@ -46,6 +46,8 @@ services:
 
   # ---- 前端：预构建镜像 ----
   frontend:
+    # A imagem do próprio namespace ainda não existe (docker-frontend.yml falha desde 2026-06-01);
+    # mantém a do upstream até o workflow publicar ghcr.io/evandrodevbr/opencodeui-frontend.
     image: ghcr.io/lehhair/opencodeui-frontend:latest
     container_name: opencode-frontend
     restart: unless-stopped
@@ -54,7 +56,7 @@ services:
 
   # ---- 后端：预构建镜像 ----
   backend:
-    image: ghcr.io/lehhair/opencodeui-backend:latest
+    image: ghcr.io/evandrodevbr/opencodeui-backend:latest
     container_name: opencode-backend
     restart: unless-stopped
     deploy:

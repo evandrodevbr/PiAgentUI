@@ -12,6 +12,8 @@
 
 services:
   frontend:
+    # Imagem do upstream: ghcr.io/evandrodevbr/opencodeui-frontend ainda não foi publicada
+    # (docker-frontend.yml falha desde 2026-06-01). Para build local use docker-compose.build.yml.
     image: ghcr.io/lehhair/opencodeui-frontend:latest
     container_name: opencodeui
     restart: unless-stopped
