@@ -6,6 +6,8 @@
 
 [English (US)](./README.md) | [Português (BR)](./README.pt-BR.md) | [Español](./README.es.md) | **日本語**
 
+> この翻訳は基準となる [メイン README](./README.md) より古い可能性があります。リポジトリ: https://github.com/evandrodevbr/PiAgentUI
+
 PiAgentUI は **Pi Agent** のためのモダンな Web / デスクトップ UI です。単なるチャット画面ではありません。最終的には Codex や Claude Desktop のような、エージェント中心の本格的な開発アプリになることを目指しています。
 
 PiAgentUI は、実際の Pi runtime を信頼できる唯一の情報源として扱います。セッション、モデルメタデータ、コンテキスト使用量、tool call、skills、MCP 設定、slash command は、可能な限り Pi から取得し、UI 側だけの仮の状態として再実装しません。

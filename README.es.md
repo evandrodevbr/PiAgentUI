@@ -6,6 +6,8 @@
 
 [English (US)](./README.md) | [Português (BR)](./README.pt-BR.md) | **Español** | [日本語](./README.ja.md)
 
+> Esta traducción puede quedar por detrás de la versión de referencia, que es el [README principal](./README.md). Repositorio: https://github.com/evandrodevbr/PiAgentUI
+
 PiAgentUI es una interfaz moderna web y de escritorio para **Pi Agent**. No es solo una capa visual de chat: el objetivo es convertirse en una aplicación completa de agentes, en la misma categoría de producto que Codex, Claude Desktop y otros entornos de desarrollo agent-first.
 
 PiAgentUI trata el runtime real de Pi como la fuente de verdad. Sesiones, metadatos de modelos, uso de contexto, tool calls, skills, configuración MCP y slash commands vienen de Pi siempre que sea posible, en lugar de recrearse como estado falso de interfaz.

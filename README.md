@@ -1,241 +1,207 @@
-<p align="center">
-  <img src="./src/assets/images/logo/PiAgentUiBlack%20%283%29.png" alt="PiAgentUI logo" width="760" />
-</p>
+# PiAgentUI
 
-<h1 align="center">PiAgentUI</h1>
-<p align="center">
-  <strong>Professional Desktop & Web UI for AI Coding Agents</strong><br/>
-  <em>Pi Agent · Claude Code · Codex · OpenCode · Cursor · Copilot</em>
-</p>
+**Desktop and web workspace for AI coding agents: real Pi Agent sessions, streaming chat, MCP and skills panels, terminal, file explorer and a Tauri desktop app.**
 
-<p align="center">
-  <img src="https://img.shields.io/badge/version-0.6.10-blue" alt="Version" />
-  <img src="https://img.shields.io/badge/license-GPL--3.0-green" alt="License" />
-  <img src="https://img.shields.io/badge/platform-Tauri%202%20%7C%20Web-brightgreen" alt="Platform" />
-  <img src="https://img.shields.io/badge/framework-React%2019%20%7C%20TypeScript-61DAFB" alt="Framework" />
-</p>
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
+![Tauri](https://img.shields.io/badge/Tauri-2-24C8DB?logo=tauri&logoColor=white)
+![Node](https://img.shields.io/badge/Node-%3E%3D22-5FA04E?logo=nodedotjs&logoColor=white)
+![Licença](https://img.shields.io/badge/license-GPL--3.0--only-green)
+[![Build Validation](https://github.com/evandrodevbr/PiAgentUI/actions/workflows/build.yml/badge.svg)](https://github.com/evandrodevbr/PiAgentUI/actions/workflows/build.yml)
 
 **English (US)** | [Português (BR)](./README.pt-BR.md) | [Español](./README.es.md) | [日本語](./README.ja.md)
 
-## TL;DR
+## About
 
-PiAgentUI is a **full-featured workspace for AI coding agents** — sessions, model switching, MCP tools, skills browser, voice input, terminal, file explorer, and Tauri desktop app. Built for Pi Agent but compatible with Claude Code, Codex, OpenCode, Cursor, and any agent that speaks SSE/HTTP.
+PiAgentUI is a chat and workspace front end for the Pi Agent runtime. Instead of a bare terminal, it gives you sessions, model switching, tool calls rendered as cards, MCP server metadata, skills grouped by source, slash commands, Git controls, a terminal, and a file explorer in one window, as a web app or as a Tauri desktop app.
 
-> **Category:** AI Agent UI · Agent Desktop Client · MCP GUI · Coding Copilot Interface  
-> **Status:** Active development — production-grade chat, evolving fast. Expect weekly releases.
+The project is Pi-first: sessions, models, context usage, tool calls, skills, MCP configuration and slash commands come from the Pi runtime whenever possible. The UI caches and enriches that data for presentation but does not invent agent state. It is a rename and rework of the OpenCodeUI base, and part of that inheritance is still visible (see [Current state and limitations](#current-state-and-limitations)).
 
-## Software preview
-
-These screenshots show the current PiAgentUI experience: a dark, focused agent workspace with real Pi sessions, model selection, MCP metadata, settings, tool-aware chat, and side panels.
-
-![PiAgentUI chat workspace with MCP side panel](./src/assets/images/img1.png)
-
-![PiAgentUI settings and server connections dialog](./src/assets/images/img2.png)
-
-![PiAgentUI model selector inside an active agent session](./src/assets/images/img3.png)
-
-## Quick Install
-
-```bash
-# Clone and install
-git clone https://github.com/lehhair/OpenCodeUI.git
-cd OpenCodeUI
-npm install
-
-# Start dev server
-npm run dev
-
-# Or build desktop app
-npm run tauri dev
-```
-
-Requires **Node.js ≥ 22** and **Pi Agent** installed. The UI auto-discovers the Pi runtime via `~/.pi/agent/piagentui-port.json`.
-
-## What PiAgentUI does today
-
-- **Agent chat with streaming** — live assistant output through SSE, stable message reconciliation, markdown rendering, code highlighting, reasoning parts, and tool cards.
-- **Real Pi sessions** — session list, active-session routing, restart-safe history loading, derived session titles, and selected-session send routing.
-- **Tool output as tool cards** — tool calls/results stay attached to assistant messages instead of leaking as normal chat text.
-- **Runtime context usage** — context usage comes from Pi runtime when available; unknown/compacted context is shown safely instead of `NaN`.
-- **Model metadata** — Pi provider/model identity remains authoritative, with optional OpenRouter catalog metadata used only for extra details like context, output, modality, pricing, and tokenizer hints.
-- **Skills panel** — real skills are parsed from the effective Pi prompt and grouped by source: global, project, package, and other.
-- **MCP metadata panel** — reads configured MCP servers from local/global config files and surfaces transport, command, URL, lifecycle, direct tools, and source.
-- **Pi slash commands** — `/api/commands/list` exposes Pi built-in commands plus dynamic extension, prompt, and skill commands.
-- **Attachments and multimodal input** — file/image/PDF/audio/video attachment affordances follow the selected model capabilities.
-- **Terminal and file tooling** — integrated terminal, file explorer, syntax highlighting, diff-oriented components, and Tauri desktop integration.
-- **Keyboard-first UI** — command palette, configurable keybindings, split panes, model selector, project/session navigation, and responsive layouts.
-
-## Product direction
-
-PiAgentUI is moving toward a complete agent app:
-
-1. **Visual actions for every Pi command** — slash commands remain available, but frequent actions should become buttons, menus, dialogs, or panels.
-2. **Voice input and realtime transcription** — microphone recording, partial transcript deltas, final transcript insertion into the composer, and OpenAI-compatible STT provider configuration.
-3. **Deeper MCP integration** — beyond metadata: connect, authenticate, inspect tools, and execute MCP workflows from the UI.
-4. **Full session control** — fork, clone, tree navigation, import/export/share, branch summaries, and context management as first-class UI flows.
-5. **Desktop-grade experience** — a polished Tauri app with local runtime discovery, secure settings, notifications, and richer workspace controls.
-
-## Audio and transcription roadmap
-
-PiAgentUI already supports attaching audio files when the selected model declares audio input support. The planned voice system adds live speech-to-text directly in the composer.
-
-Recommended architecture:
-
-- **Default realtime provider:** OpenAI Realtime Transcription with `gpt-realtime-whisper` for low-latency partial transcripts.
-- **Default file fallback:** OpenAI Audio Transcriptions with `gpt-4o-transcribe`, `gpt-4o-mini-transcribe`, or `whisper-1`.
-- **Custom providers:** user-configurable OpenAI-compatible STT APIs, such as providers that implement `POST /v1/audio/transcriptions`.
-
-Planned UX:
-
-- microphone button in the composer;
-- recording and permission states;
-- partial transcript overlay;
-- final transcript inserted into the input;
-- optional append/replace behavior;
-- auto-send disabled by default;
-- recoverable error handling for permissions, network failures, and provider errors.
-
-Planned provider config shape:
-
-```json
-{
-  "kind": "openai-compatible",
-  "mode": "file",
-  "baseUrl": "https://api.example.com/v1",
-  "transcriptionEndpoint": "/audio/transcriptions",
-  "transcriptionModel": "openai/whisper-large-v3",
-  "language": "en"
-}
-```
-
-Realtime support is treated as a separate capability because OpenAI-compatible HTTP transcription does not guarantee WebSocket compatibility.
-
-## Architecture
+## How it works
 
 ```text
-PiAgentUI
-├─ React/Vite frontend
-│  ├─ chat, message rendering, input, panels, settings
-│  ├─ local stores for UI preferences
-│  └─ SSE/API clients for PiAgentUI local endpoints
-├─ Pi extension backend
-│  └─ extensions/piagentui-server.ts
-│     ├─ exposes local /api/* endpoints
-│     ├─ bridges to Pi runtime/session/model APIs
-│     ├─ streams Pi events to the browser
-│     └─ reads local metadata such as MCP config and skills
-└─ Pi Agent runtime
-   ├─ sessions
-   ├─ models/providers
-   ├─ tools
-   ├─ skills
-   ├─ MCP
-   └─ slash commands
+  browser window / Tauri webview
+            |
+            |  HTTP /api/*   +   SSE /global/event   +   WebSocket
+            v
+  Pi extension server  (extensions/piagentui-server.ts, Node http + ws)
+    |-- serves the built UI from dist/ and injects window.PI_BOOT_DATA {baseUrl, token}
+    |-- writes connection info to ~/.pi/agent/piagentui-port.json {port, token}
+    |-- enforces bearer-token auth on /api/* and loopback-only access by default
+    |-- bridges sessions, models, tools, MCP, skills and commands
+            ^
+            |  loaded by the runtime
+        Pi Agent process
 ```
 
-The UI should not invent runtime state when Pi already knows the answer. PiAgentUI can cache and enrich data for UX, but Pi remains authoritative for agent behavior.
+- On session start the extension listens on port `58785` (or the next free port) and publishes the selected port plus a random token in the discovery file.
+- `GET /global/health` is open; every other `/api/*` route requires `Authorization: Bearer <token>`.
+- The Tauri app reads the same discovery file through the `get_pi_agent_connection` Rust command, so the desktop build connects to the local runtime without manual configuration.
+- `npm run dev` (Vite) is a front-end-only development server; it proxies `/api` to `127.0.0.1:4096` with the `/api` prefix stripped, so point it at a compatible server or use the extension-served build for the Pi flow.
 
-## Tech stack
+## Stack
 
-| Area                | Stack                                         |
-| ------------------- | --------------------------------------------- |
-| UI                  | React 19, TypeScript                          |
-| Build               | Vite 8                                        |
-| Styling             | Tailwind CSS v4 plus project design tokens    |
-| Desktop             | Tauri 2                                       |
-| Markdown            | Streamdown / markdown rendering pipeline      |
-| Syntax highlighting | Shiki                                         |
-| Terminal            | xterm.js                                      |
-| Testing             | Vitest, Testing Library                       |
-| Local backend       | Pi extension, Node HTTP server, WebSocket/SSE |
+| Area | Choice |
+|---|---|
+| UI | React 19, TypeScript 5.9 |
+| Build | Vite 8 (rolldown), `tsc -b` as the type gate |
+| Styling | Tailwind CSS 4 plus project design tokens |
+| Desktop / mobile | Tauri 2 (Rust 1.85+), Android targets generated in `src-tauri/gen` |
+| Markdown and code | Streamdown, Shiki, KaTeX |
+| Terminal | xterm.js |
+| i18n | i18next, locales `en`, `pt-BR`, `es`, `ja`, `zh-CN`, `hi`, `bn`, `ar` |
+| Tests | Vitest 4, Testing Library, jsdom |
+| Local backend | Pi extension: Node HTTP server plus `ws` (SSE and WebSocket) |
+| Gateway (containers) | Rust router (`src-router`, axum) in front of Caddy |
+| Packages | npm with `package-lock.json` |
 
-## Local development
+## Requirements
 
-Install dependencies:
+- Node.js `>=22` (CI runs Node 22; verified locally on Node 24.20.0)
+- npm `>=10` (the repository is npm-based; `package-lock.json` is authoritative)
+- Rust `1.85+` only if you build the desktop app or the gateway
+- Docker only for the container stack in `docker/`
+- Pi Agent installed locally to have real sessions and models; without it the UI starts in standalone mode and only shows the server connection dialog
+
+## Quick start
 
 ```bash
-npm install
+git clone https://github.com/evandrodevbr/PiAgentUI.git
+cd PiAgentUI
+npm ci                 # 615 packages, runs scripts/copy-material-icons.mjs
+npm run build          # tsc -b && vite build  -> dist/
+npm run dev            # Vite dev server on http://localhost:5173
 ```
 
-Start the frontend dev server:
+Web UI served by the Pi extension (this is the path that talks to a real Pi runtime):
 
 ```bash
-npm run dev
+npm run build                                  # the extension serves dist/
+# with Pi Agent running this repository as a Pi package (see package.json -> "pi")
+cat ~/.pi/agent/piagentui-port.json            # {"port": 58785, "token": "..."}
+# open http://127.0.0.1:58785
 ```
 
-Build the app:
+Desktop app:
 
 ```bash
-npm run build
+npm run tauri dev      # development window, uses the Vite dev server
+npm run tauri build    # bundles per src-tauri/tauri.conf.json (deb on Linux, dmg, nsis)
 ```
 
-Run tests:
+Android (see `scripts/dev-android.sh` and the Android job in the release workflow):
 
 ```bash
-npm run test:run
+npm run tauri android dev
 ```
 
-Run type checks:
+## Usage
+
+Local endpoints exposed by the extension server. All of them, except `/global/health` and the SSE route, require the bearer token from the discovery file.
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /global/health` | Liveness probe, returns `{"status":"ok","pi":"ready"}` |
+| `GET /global/event` | SSE event stream (sessions, message parts, status) |
+| `GET /api/models` | Model list with normalized capabilities |
+| `GET /api/sessions` | Session list |
+| `POST /api/sessions` | Create a session |
+| `POST /api/sessions/abort` | Abort the running turn |
+| `GET /api/sessions/:id/messages` | Session history normalized for rendering |
+| `GET /api/sessions/:id/context` | Context usage of the active session |
+| `POST /api/messages/send` | Send a user message to a session |
+| `GET /api/skills` | Effective skills grouped by source |
+| `GET /api/mcp/status` | Configured MCP servers (transport, command, URL, source) |
+| `GET /api/commands/list` | Built-in and dynamic slash commands |
+| `GET /api/agents`, `GET /api/files/list`, `GET /api/permissions/list`, `GET /api/questions/list` | Runtime inventory for the panels |
+| `GET /api/vcs/status`, `/info`, `/branches` | Git state used by the composer controls |
+| `GET /api/extensions/list` | Extension catalog for the extensions panel |
+| `GET /api/settings/stt`, `/api/settings/tts` | Voice settings (STT/TTS) |
+| `GET /api/network/access`, `POST /api/network/access` | LAN access toggle (loopback-only by default) |
+
+The full route table, including Git and extension mutations, lives in [`extensions/piagentui-server.ts`](extensions/piagentui-server.ts). Ports and paths can change; the discovery file is the source of truth for the port and token.
+
+Auditing the agent from a shell works too, for example:
 
 ```bash
-npm run typecheck
-npm run typecheck:extensions
+TOKEN=$(node -e "console.log(require(process.env.HOME+'/.pi/agent/piagentui-port.json').token)")
+curl -s -H "Authorization: Bearer $TOKEN" http://127.0.0.1:58785/api/models | head -c 300
 ```
 
-Full validation:
+## Production and deploy
 
 ```bash
-npm run validate
+npm run build          # tsc -b && vite build; output in dist/ (about 14 MB, static)
+npm run preview        # serves dist/ locally for a final check
 ```
 
-## Pi extension runtime
+- Static hosting: `dist/` is a plain SPA. If it is mounted under a subpath, build with `VITE_BASE_PATH=/subpath/ npm run build`.
+- Container (front end plus Caddy): `docker/Dockerfile.frontend` builds the UI on Node 22 and serves it from Caddy on port 3000.
+- Full container stack: `docker-compose.yml` runs `gateway` (Caddy plus the Rust router on 6658/6659), `frontend` and `backend`. Copy `.env.example` to `.env` first. Images: `backend` and `gateway` come from `ghcr.io/evandrodevbr/opencodeui-{backend,gateway}` (published by the `docker-backend.yml` and `docker-gateway.yml` workflows); the `frontend` image still points at the upstream `ghcr.io/lehhair/opencodeui-frontend` because `docker-frontend.yml` has been failing since 2026-06-01 and no `ghcr.io/evandrodevbr/opencodeui-frontend` was ever published. To build all three locally use `docker compose -f docker-compose.yml -f docker-compose.build.yml up -d --build`.
+- GitHub Pages: `.github/workflows/deploy.yml` builds `dist/` with `VITE_BASE_PATH=/PiAgentUI/` and publishes it on every push to `main` (enable Pages with source "GitHub Actions" the first time).
+- Desktop and mobile releases: `.github/workflows/release.yml` runs on `v*` tags and attaches Windows, macOS, Linux and Android artifacts to the GitHub release.
 
-PiAgentUI is registered as a Pi extension in `package.json`:
-
-```json
-{
-  "pi": {
-    "extensions": ["./extensions/piagentui-server.ts"]
-  }
-}
-```
-
-When the extension starts, it writes local discovery metadata to:
+## Project structure
 
 ```text
-~/.pi/agent/piagentui-port.json
+extensions/                  Pi extension: HTTP/WebSocket server, settings store, git and
+                             extension managers, all with Vitest tests
+src/                         React front end (Vite entry in index.html)
+├── api/                     HTTP/SSE clients and the request pipeline
+├── components/              shared UI pieces (code blocks, diffs, command palette)
+├── features/                chat, input, messages, tools, sessions, settings, slash commands
+├── hooks/                   session, events, transcription, permissions
+├── locales/                 8 translated bundles
+├── store/                   Zustand-style stores (sessions, messages, layout, theme)
+└── constants/               API base URL, storage keys, UI metrics
+src-router/                  Rust gateway router (axum) behind Caddy
+src-tauri/                   Tauri 2 desktop and mobile shell (Rust), Android project in gen/
+docker/                      Dockerfiles, Caddy configs, entrypoints
+scripts/                     icon copy, version bump, release preparation, Android dev helper
+docs/superpowers/            design specs and plans written during the migration
 ```
 
-The web app uses that local port/token information to talk to the running extension server. Some backend changes require restarting or reloading the Pi extension process before the browser sees the new behavior.
+## Verification
 
-## Important local endpoints
+Everything below was executed on a clean clone in this repository state:
 
-| Endpoint                         | Purpose                                                |
-| -------------------------------- | ------------------------------------------------------ |
-| `GET /api/models`                | Real Pi model list plus normalized capability metadata |
-| `GET /api/sessions`              | Session list parsed from Pi session files              |
-| `GET /api/sessions/:id/messages` | Session history normalized for UI rendering            |
-| `GET /api/sessions/:id/context`  | Runtime context usage for the active session           |
-| `POST /api/messages/send`        | Send user message to the requested Pi session          |
-| `GET /api/skills`                | Effective Pi skills grouped by source                  |
-| `GET /api/mcp/status`            | Configured MCP server metadata                         |
-| `GET /api/commands/list`         | Built-in and dynamic Pi slash commands                 |
-| `GET /global/event`              | SSE event stream from PiAgentUI backend                |
+| Command | Result |
+|---|---|
+| `npm ci` | 615 packages installed, postinstall copies 266 material icons |
+| `npm run typecheck` | exit 0 (`tsc -b`, app + extension projects) |
+| `npm run typecheck:extensions` | exit 0 |
+| `npm run lint` | exit 0 (0 errors, 109 warnings) |
+| `npm run build` | exit 0, `dist/` about 14 MB |
+| `npm run test:run` | 89 files, 319 tests, all passing |
+| `npm run validate` | exit 0 (the same gate CI runs in `build.yml`) |
+| `cargo check` in `src-router/` | exit 0 |
+| `cargo check --manifest-path src-tauri/Cargo.toml` | exit 0 (1 warning) |
+| extension server over HTTP | `/global/health` 200, `/` 200 with `PI_BOOT_DATA`, `/api/models` 200 with token and 401 without, `/api/sessions`, `/api/sessions/:id/messages`, `/api/sessions/:id/context`, `/api/skills`, `/api/mcp/status`, `/api/commands/list`, `/api/network/access` all 200, `/global/event` 200 `text/event-stream` |
 
-## Development principles
+Two things to know when running the suite: `npm run test:run` needs `dist/` to exist, because the extension server test fetches the served `index.html`, so `npm run build` must run first (that is the order in `npm run validate`); and `npm run format:check` currently reports 67 files that are not Prettier-formatted, so `npm run check` fails on that step even though the CI gate passes.
 
-- Prefer real Pi runtime data over mocked UI-only state.
-- Keep OpenRouter metadata as catalog enrichment only; never replace Pi provider/model identity with it.
-- Treat unknown runtime values explicitly instead of rendering misleading numbers.
-- Add tests before behavior changes whenever possible.
-- Keep tool results inside tool cards.
-- Keep UI work aligned with the existing theme, motion, spacing, and panel patterns.
-- Document what is implemented separately from what is planned.
+## Current state and limitations
 
-## Repository notes
+- Active single-developer project, pre-1.0 (`0.6.10`). The chat, sessions, MCP, skills and command panels work against a real Pi runtime; some areas are still moving.
+- Naming inheritance from the OpenCodeUI base is only partially cleaned: the Rust crate is `opencodeui-router`, container images are `opencodeui-*`, `.env.example` comments are in Chinese, and the Docker stack runs an `opencode serve` backend that belongs to the inherited deployment, not to the Pi extension flow.
+- There is no test for the Tauri shell or the Rust gateway beyond compilation; the Android and desktop bundles are only built by the release workflow.
+- The suite is component- and server-level; there is no end-to-end browser test and no coverage threshold.
+- `@mariozechner/pi-coding-agent` is a devDependency for types only (the runtime provides the real extension API), and npm marks that package line as deprecated in favour of `@earendil-works/pi-coding-agent`.
+- The front end talks to one runtime per window: the discovery file or a manually configured server. There is no multi-runtime aggregation.
+- Voice input exists in the UI (`src/hooks/useVoiceTranscription.ts`) and requires an OpenAI-compatible STT endpoint configured in settings; it is not covered by an automated browser test.
+- No published npm package and no hosted web demo; both README and code assume a local runtime.
+- `docker-frontend.yml` last ran on 2026-06-01 and failed at the build step, so `ghcr.io/evandrodevbr/opencodeui-frontend` was never published (verified against GHCR with the owner credentials); the compose files pull that one image from upstream until the workflow is fixed.
 
-This project still contains inherited naming from the original OpenCodeUI base in a few places, including package metadata and older documentation files. The current direction is PiAgentUI-first, and future cleanup should migrate remaining OpenCodeUI naming without breaking local workflows.
+## Documentation
+
+| Document | Content |
+|---|---|
+| [`docs/superpowers/specs/`](docs/superpowers/specs/) | Design specs for the Pi extension migration, sessions, STT and Git controls |
+| [`docs/superpowers/plans/`](docs/superpowers/plans/) | Implementation plans and the roadmap for context, skills and MCP |
+| [`CHANGELOG.md`](CHANGELOG.md) | Release history used by the release workflow |
+| [`docker/`](docker/) | Dockerfiles, Caddy configs and entrypoints for the container stack |
 
 ## License
 
-This repository currently follows the license declared in `package.json`: `GPL-3.0-only`.
+GPL-3.0-only, as declared in `package.json` and [`LICENSE`](LICENSE). PiAgentUI is a fork and rework of OpenCodeUI; the original authors are credited in `src-tauri/Cargo.toml`.

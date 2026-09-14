@@ -4,209 +4,207 @@
 
 # PiAgentUI
 
+**Workspace desktop e web para agentes de código: sessões reais do Pi Agent, chat com streaming, painéis de MCP e skills, terminal, explorador de arquivos e app desktop em Tauri.**
+
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
+![Tauri](https://img.shields.io/badge/Tauri-2-24C8DB?logo=tauri&logoColor=white)
+![Node](https://img.shields.io/badge/Node-%3E%3D22-5FA04E?logo=nodedotjs&logoColor=white)
+![Licença](https://img.shields.io/badge/license-GPL--3.0--only-green)
+[![Build Validation](https://github.com/evandrodevbr/PiAgentUI/actions/workflows/build.yml/badge.svg)](https://github.com/evandrodevbr/PiAgentUI/actions/workflows/build.yml)
+
 [English (US)](./README.md) | **Português (BR)** | [Español](./README.es.md) | [日本語](./README.ja.md)
 
-PiAgentUI é uma interface moderna web e desktop para o **Pi Agent**. Ele não é apenas uma camada visual de chat: o objetivo é evoluir para um aplicativo completo de agentes, na mesma categoria de produto de Codex, Claude Desktop e outros ambientes agent-first para desenvolvimento.
+## Sobre
 
-O PiAgentUI trata o runtime real do Pi como fonte de verdade. Sessões, metadados de modelo, uso de contexto, tool calls, skills, configuração MCP e slash commands vêm do Pi sempre que possível, em vez de serem recriados como estado falso de interface.
+PiAgentUI é uma interface de chat e um workspace para o runtime do Pi Agent. No lugar de um terminal cru, ele reúne sessões, troca de modelo, tool calls em cards, metadados de servidores MCP, skills agrupadas por origem, slash commands, controles de Git, terminal e explorador de arquivos, como aplicação web ou como app desktop Tauri.
 
-> **Status do projeto:** desenvolvimento local ativo. Algumas áreas já estão próximas de produto, enquanto outras ainda mudam rapidamente.
+O projeto é Pi-first: sessões, modelos, uso de contexto, tool calls, skills, configuração MCP e slash commands vêm do runtime do Pi sempre que possível. A UI cacheia e enriquece esses dados para apresentação, mas não inventa estado do agente. É um fork e uma reescrita da base OpenCodeUI, e parte dessa herança ainda aparece (veja [Estado atual e limitações](#estado-atual-e-limitações)).
 
-## Demonstração do software
-
-Estas capturas mostram a experiência atual do PiAgentUI: um workspace escuro e focado para agentes, com sessões reais do Pi, seleção de modelos, metadados MCP, settings, chat com ferramentas e painéis laterais.
-
-![Workspace de chat do PiAgentUI com painel lateral MCP](./src/assets/images/img1.png)
-
-![Diálogo de settings e conexões de servidor do PiAgentUI](./src/assets/images/img2.png)
-
-![Seletor de modelos do PiAgentUI dentro de uma sessão ativa](./src/assets/images/img3.png)
-
-## O que o PiAgentUI já faz hoje
-
-- **Chat com streaming** — saída ao vivo via SSE, reconciliação estável de mensagens, markdown, code highlight, partes de reasoning e cards de ferramentas.
-- **Sessões reais do Pi** — lista de sessões, roteamento para sessão ativa, histórico seguro após restart, títulos derivados e envio para a sessão selecionada.
-- **Tool output em cards** — tool calls/results ficam anexados às mensagens do assistente, sem vazar como texto normal no chat.
-- **Uso real de contexto** — o uso de contexto vem do runtime do Pi quando disponível; contexto desconhecido/compactado é exibido de forma segura em vez de `NaN`.
-- **Metadados de modelos** — identidade de provider/modelo vem do Pi; o catálogo OpenRouter local é usado apenas como enriquecimento de detalhes.
-- **Painel de Skills** — skills reais são lidas do prompt efetivo do Pi e agrupadas por origem: global, project, package e other.
-- **Painel MCP** — lê servidores MCP configurados em arquivos locais/globais e mostra transporte, comando, URL, lifecycle, direct tools e origem.
-- **Slash commands do Pi** — `/api/commands/list` expõe comandos built-in do Pi e comandos dinâmicos de extensões, prompts e skills.
-- **Anexos multimodais** — suporte visual a arquivos/imagens/PDF/áudio/vídeo conforme as capacidades do modelo selecionado.
-- **Terminal e arquivos** — terminal integrado, explorador de arquivos, syntax highlighting, componentes de diff e integração desktop via Tauri.
-- **UI keyboard-first** — command palette, atalhos configuráveis, split panes, seletor de modelo, navegação por projeto/sessão e layouts responsivos.
-
-## Direção do produto
-
-O PiAgentUI está caminhando para virar um app completo de agentes:
-
-1. **Ações visuais para todos os comandos do Pi** — slash commands continuam disponíveis, mas ações frequentes devem virar botões, menus, diálogos ou painéis.
-2. **Entrada por voz e transcrição em tempo real** — gravação de microfone, deltas parciais, inserção da transcrição final no composer e configuração de provedores STT OpenAI-compatible.
-3. **Integração MCP mais profunda** — além de metadados: conectar, autenticar, inspecionar ferramentas e executar workflows MCP pela UI.
-4. **Controle completo de sessões** — fork, clone, navegação em árvore, import/export/share, branch summaries e gerenciamento de contexto como fluxos nativos.
-5. **Experiência desktop completa** — app Tauri polido com descoberta local de runtime, settings seguros, notificações e controles ricos de workspace.
-
-## Roadmap de áudio e transcrição
-
-O PiAgentUI já aceita anexos de áudio quando o modelo selecionado declara suporte a áudio. O sistema planejado de voz adiciona speech-to-text ao vivo diretamente no composer.
-
-Arquitetura recomendada:
-
-- **Provedor realtime padrão:** OpenAI Realtime Transcription com `gpt-realtime-whisper` para transcrição parcial de baixa latência.
-- **Fallback por arquivo:** OpenAI Audio Transcriptions com `gpt-4o-transcribe`, `gpt-4o-mini-transcribe` ou `whisper-1`.
-- **Provedores customizados:** APIs STT OpenAI-compatible configuráveis pelo usuário, como provedores que implementam `POST /v1/audio/transcriptions`.
-
-UX planejada:
-
-- botão de microfone no composer;
-- estados de gravação e permissão;
-- overlay de transcrição parcial;
-- texto final inserido no input;
-- comportamento configurável de append/replace;
-- auto-send desligado por padrão;
-- tratamento recuperável para erros de permissão, rede e provedor.
-
-Exemplo de configuração de provider:
-
-```json
-{
-  "kind": "openai-compatible",
-  "mode": "file",
-  "baseUrl": "https://api.example.com/v1",
-  "transcriptionEndpoint": "/audio/transcriptions",
-  "transcriptionModel": "openai/whisper-large-v3",
-  "language": "pt"
-}
-```
-
-Suporte realtime é tratado como capability separada, porque compatibilidade HTTP com a OpenAI não garante compatibilidade WebSocket.
-
-## Arquitetura
+## Como funciona
 
 ```text
-PiAgentUI
-├─ Frontend React/Vite
-│  ├─ chat, renderização de mensagens, input, painéis e settings
-│  ├─ stores locais para preferências de UI
-│  └─ clientes SSE/API para endpoints locais do PiAgentUI
-├─ Backend como extensão Pi
-│  └─ extensions/piagentui-server.ts
-│     ├─ expõe endpoints locais /api/*
-│     ├─ faz ponte com runtime/sessões/modelos do Pi
-│     ├─ transmite eventos do Pi para o browser
-│     └─ lê metadados locais como MCP config e skills
-└─ Runtime Pi Agent
-   ├─ sessões
-   ├─ modelos/providers
-   ├─ ferramentas
-   ├─ skills
-   ├─ MCP
-   └─ slash commands
+  janela do navegador / webview Tauri
+            |
+            |  HTTP /api/*   +   SSE /global/event   +   WebSocket
+            v
+  Servidor da extensão Pi  (extensions/piagentui-server.ts, Node http + ws)
+    |-- serve o build da UI a partir de dist/ e injeta window.PI_BOOT_DATA {baseUrl, token}
+    |-- grava os dados de conexão em ~/.pi/agent/piagentui-port.json {port, token}
+    |-- exige bearer token em /api/* e restringe o acesso ao loopback por padrão
+    |-- faz a ponte para sessões, modelos, ferramentas, MCP, skills e comandos
+            ^
+            |  carregado pelo runtime
+        Processo do Pi Agent
 ```
 
-A UI não deve inventar estado de runtime quando o Pi já sabe a resposta. O PiAgentUI pode cachear e enriquecer dados para UX, mas o Pi continua autoritativo para o comportamento do agente.
+- Ao iniciar uma sessão, a extensão escuta na porta `58785` (ou na próxima livre) e publica a porta escolhida e um token aleatório no arquivo de descoberta.
+- `GET /global/health` é aberto; todas as outras rotas `/api/*` exigem `Authorization: Bearer <token>`.
+- O app Tauri lê o mesmo arquivo de descoberta pelo comando Rust `get_pi_agent_connection`, então o build desktop se conecta ao runtime local sem configuração manual.
+- `npm run dev` (Vite) serve apenas o front end em desenvolvimento; ele faz proxy de `/api` para `127.0.0.1:4096` removendo o prefixo `/api`. Aponte para um servidor compatível ou use o build servido pela extensão para o fluxo Pi.
 
-## Stack técnica
+## Stack
 
-| Área                | Stack                                        |
-| ------------------- | -------------------------------------------- |
-| UI                  | React 19, TypeScript                         |
-| Build               | Vite 8                                       |
-| Estilo              | Tailwind CSS v4 e design tokens do projeto   |
-| Desktop             | Tauri 2                                      |
-| Markdown            | Streamdown / pipeline de markdown            |
-| Syntax highlighting | Shiki                                        |
-| Terminal            | xterm.js                                     |
-| Testes              | Vitest, Testing Library                      |
-| Backend local       | Extensão Pi, Node HTTP server, WebSocket/SSE |
+| Área | Escolha |
+|---|---|
+| UI | React 19, TypeScript 5.9 |
+| Build | Vite 8 (rolldown), com `tsc -b` como gate de tipos |
+| Estilo | Tailwind CSS 4 e design tokens do projeto |
+| Desktop e mobile | Tauri 2 (Rust 1.85+), alvos Android gerados em `src-tauri/gen` |
+| Markdown e código | Streamdown, Shiki, KaTeX |
+| Terminal | xterm.js |
+| i18n | i18next, locales `en`, `pt-BR`, `es`, `ja`, `zh-CN`, `hi`, `bn`, `ar` |
+| Testes | Vitest 4, Testing Library, jsdom |
+| Backend local | Extensão Pi: servidor HTTP Node com `ws` (SSE e WebSocket) |
+| Gateway (containers) | Roteador Rust (`src-router`, axum) na frente do Caddy |
+| Pacotes | npm com `package-lock.json` |
 
-## Desenvolvimento local
+## Requisitos
 
-Instalar dependências:
+- Node.js `>=22` (o CI roda Node 22; verificado localmente em Node 24.20.0)
+- npm `>=10` (o repositório é npm; `package-lock.json` é a referência)
+- Rust `1.85+` apenas para buildar o app desktop ou o gateway
+- Docker apenas para a stack de containers em `docker/`
+- Pi Agent instalado para ter sessões e modelos reais; sem ele a UI sobe em modo standalone e mostra apenas o diálogo de conexão com servidores
+
+## Início rápido
 
 ```bash
-npm install
+git clone https://github.com/evandrodevbr/PiAgentUI.git
+cd PiAgentUI
+npm ci                 # 615 pacotes; roda scripts/copy-material-icons.mjs
+npm run build          # tsc -b && vite build  -> dist/
+npm run dev            # servidor de desenvolvimento Vite em http://localhost:5173
 ```
 
-Iniciar o frontend em modo dev:
+UI web servida pela extensão Pi (é o caminho que conversa com o runtime Pi de verdade):
 
 ```bash
-npm run dev
+npm run build                                  # a extensão serve o dist/
+# com o Pi Agent carregando este repositório como pacote Pi (veja "pi" em package.json)
+cat ~/.pi/agent/piagentui-port.json            # {"port": 58785, "token": "..."}
+# abra http://127.0.0.1:58785
 ```
 
-Build:
+App desktop:
 
 ```bash
-npm run build
+npm run tauri dev      # janela de desenvolvimento, usa o servidor Vite
+npm run tauri build    # empacota conforme src-tauri/tauri.conf.json (deb no Linux, dmg, nsis)
 ```
 
-Testes:
+Android (veja `scripts/dev-android.sh` e o job de Android no workflow de release):
 
 ```bash
-npm run test:run
+npm run tauri android dev
 ```
 
-Type checks:
+## Uso
+
+Rotas locais expostas pelo servidor da extensão. Todas, exceto `/global/health` e a rota SSE, exigem o bearer token do arquivo de descoberta.
+
+| Rota | Para que serve |
+|---|---|
+| `GET /global/health` | Prova de vida, responde `{"status":"ok","pi":"ready"}` |
+| `GET /global/event` | Stream SSE de eventos (sessões, partes de mensagem, status) |
+| `GET /api/models` | Lista de modelos com capacidades normalizadas |
+| `GET /api/sessions` | Lista de sessões |
+| `POST /api/sessions` | Cria sessão |
+| `POST /api/sessions/abort` | Aborta o turno em execução |
+| `GET /api/sessions/:id/messages` | Histórico da sessão normalizado para renderização |
+| `GET /api/sessions/:id/context` | Uso de contexto da sessão ativa |
+| `POST /api/messages/send` | Envia mensagem do usuário para uma sessão |
+| `GET /api/skills` | Skills efetivas agrupadas por origem |
+| `GET /api/mcp/status` | Servidores MCP configurados (transporte, comando, URL, origem) |
+| `GET /api/commands/list` | Slash commands built-in e dinâmicos |
+| `GET /api/agents`, `GET /api/files/list`, `GET /api/permissions/list`, `GET /api/questions/list` | Inventário do runtime para os painéis |
+| `GET /api/vcs/status`, `/info`, `/branches` | Estado do Git usado pelos controles do composer |
+| `GET /api/extensions/list` | Catálogo de extensões do painel de extensões |
+| `GET /api/settings/stt`, `/api/settings/tts` | Configurações de voz (STT/TTS) |
+| `GET /api/network/access`, `POST /api/network/access` | Chave de acesso em LAN (padrão: só loopback) |
+
+A tabela completa de rotas, incluindo as mutações de Git e de extensões, está em [`extensions/piagentui-server.ts`](extensions/piagentui-server.ts). Portas e caminhos podem mudar; o arquivo de descoberta é a fonte de verdade para porta e token.
+
+Auditar o agente pelo shell também funciona, por exemplo:
 
 ```bash
-npm run typecheck
-npm run typecheck:extensions
+TOKEN=$(node -e "console.log(require(process.env.HOME+'/.pi/agent/piagentui-port.json').token)")
+curl -s -H "Authorization: Bearer $TOKEN" http://127.0.0.1:58785/api/models | head -c 300
 ```
 
-Validação completa:
+## Produção e deploy
 
 ```bash
-npm run validate
+npm run build          # tsc -b && vite build; saída em dist/ (cerca de 14 MB, estático)
+npm run preview        # serve o dist/ localmente para conferência final
 ```
 
-## Runtime da extensão Pi
+- Hospedagem estática: `dist/` é uma SPA comum. Se for montada em um subcaminho, build com `VITE_BASE_PATH=/subcaminho/ npm run build`.
+- Container (front end com Caddy): `docker/Dockerfile.frontend` builda a UI em Node 22 e serve pelo Caddy na porta 3000.
+- Stack completa de containers: `docker-compose.yml` sobe `gateway` (Caddy com o roteador Rust em 6658/6659), `frontend` e `backend`. Copie `.env.example` para `.env` antes. As imagens vêm de `ghcr.io/evandrodevbr/opencodeui-{backend,frontend,gateway}`, publicadas pelos workflows `docker-*`; para buildar localmente use `docker compose -f docker-compose.yml -f docker-compose.build.yml up -d --build`.
+- GitHub Pages: `.github/workflows/deploy.yml` builda o `dist/` com `VITE_BASE_PATH=/PiAgentUI/` e publica a cada push em `main` (na primeira vez, habilite o Pages com origem "GitHub Actions").
+- Releases desktop e mobile: `.github/workflows/release.yml` roda em tags `v*` e anexa artefatos de Windows, macOS, Linux e Android ao release do GitHub.
 
-O PiAgentUI é registrado como extensão Pi em `package.json`:
-
-```json
-{
-  "pi": {
-    "extensions": ["./extensions/piagentui-server.ts"]
-  }
-}
-```
-
-Quando a extensão inicia, ela escreve metadados de descoberta local em:
+## Estrutura do projeto
 
 ```text
-~/.pi/agent/piagentui-port.json
+extensions/                  Extensão Pi: servidor HTTP/WebSocket, store de settings,
+                             gerentes de git e de extensões, todos com testes Vitest
+src/                         Front end React (entrada Vite em index.html)
+├── api/                     Clientes HTTP/SSE e pipeline de requisições
+├── components/              Peças de UI compartilhadas (code blocks, diffs, command palette)
+├── features/                chat, input, mensagens, ferramentas, sessões, settings, slash commands
+├── hooks/                   sessão, eventos, transcrição, permissões
+├── locales/                 8 bundles traduzidos
+├── store/                   Stores (sessões, mensagens, layout, tema)
+└── constants/               URL base da API, chaves de storage, métricas de UI
+src-router/                  Roteador do gateway em Rust (axum), atrás do Caddy
+src-tauri/                   Shell desktop e mobile Tauri 2 (Rust), projeto Android em gen/
+docker/                      Dockerfiles, configs do Caddy, entrypoints
+scripts/                     cópia de ícones, bump de versão, preparação de release, helper Android
+docs/superpowers/            Specs de design e planos escritos durante a migração
 ```
 
-O app web usa a porta/token desse arquivo para falar com o servidor local da extensão. Algumas mudanças de backend exigem reiniciar ou recarregar o processo da extensão Pi antes de aparecerem no browser.
+## Verificação
 
-## Endpoints locais importantes
+Tudo abaixo foi executado em um clone limpo neste estado do repositório:
 
-| Endpoint                         | Finalidade                                            |
-| -------------------------------- | ----------------------------------------------------- |
-| `GET /api/models`                | Lista real de modelos Pi com capacidades normalizadas |
-| `GET /api/sessions`              | Lista de sessões lida dos arquivos de sessão do Pi    |
-| `GET /api/sessions/:id/messages` | Histórico normalizado para renderização na UI         |
-| `GET /api/sessions/:id/context`  | Uso de contexto runtime para a sessão ativa           |
-| `POST /api/messages/send`        | Envia mensagem para a sessão Pi solicitada            |
-| `GET /api/skills`                | Skills efetivas do Pi agrupadas por origem            |
-| `GET /api/mcp/status`            | Metadados dos servidores MCP configurados             |
-| `GET /api/commands/list`         | Slash commands built-in e dinâmicos do Pi             |
-| `GET /global/event`              | Stream SSE de eventos do backend PiAgentUI            |
+| Comando | Resultado |
+|---|---|
+| `npm ci` | 615 pacotes instalados, postinstall copia 266 ícones |
+| `npm run typecheck` | exit 0 (`tsc -b`, projetos app e extensão) |
+| `npm run typecheck:extensions` | exit 0 |
+| `npm run lint` | exit 0 (0 erros, 109 avisos) |
+| `npm run build` | exit 0, `dist/` com cerca de 14 MB |
+| `npm run test:run` | 89 arquivos, 319 testes, todos passando |
+| `npm run validate` | exit 0 (o mesmo gate que o CI roda em `build.yml`) |
+| `cargo check` em `src-router/` | exit 0 |
+| `cargo check --manifest-path src-tauri/Cargo.toml` | exit 0 (1 aviso) |
+| servidor da extensão via HTTP | `/global/health` 200, `/` 200 com `PI_BOOT_DATA`, `/api/models` 200 com token e 401 sem, `/api/sessions`, `/api/sessions/:id/messages`, `/api/sessions/:id/context`, `/api/skills`, `/api/mcp/status`, `/api/commands/list`, `/api/network/access` todos 200, `/global/event` 200 `text/event-stream` |
 
-## Princípios de desenvolvimento
+Dois detalhes ao rodar a suíte: `npm run test:run` precisa do `dist/` existir, porque o teste do servidor da extensão busca o `index.html` servido, então `npm run build` deve rodar antes (é a ordem em `npm run validate`); e `npm run format:check` hoje acusa 67 arquivos fora do padrão do Prettier, então `npm run check` falha nesse passo mesmo com o gate do CI passando.
 
-- Preferir dados reais do runtime Pi em vez de estado fake só da UI.
-- Manter OpenRouter como enriquecimento de catálogo, nunca como substituto da identidade provider/modelo do Pi.
-- Tratar valores runtime desconhecidos explicitamente.
-- Escrever testes antes de mudanças de comportamento sempre que possível.
-- Manter tool results dentro dos cards de ferramenta.
-- Seguir o sistema visual existente: tema, movimento, espaçamento e padrões de painéis.
-- Separar claramente o que está implementado do que é roadmap.
+## Estado atual e limitações
 
-## Notas do repositório
+- Projeto ativo de um desenvolvedor, pré-1.0 (`0.6.10`). Chat, sessões, MCP, skills e painéis de comandos funcionam contra um runtime Pi real; algumas áreas ainda mudam rápido.
+- A herança de nomes da base OpenCodeUI foi limpa só em parte: o crate Rust se chama `opencodeui-router`, as imagens de container são `opencodeui-*`, os comentários do `.env.example` estão em chinês e a stack Docker roda um backend `opencode serve` que pertence ao deploy herdado, não ao fluxo da extensão Pi.
+- Não há teste do shell Tauri nem do gateway Rust além da compilação; os pacotes desktop e Android só são gerados pelo workflow de release.
+- A suíte é de componentes e de servidor; não há teste end-to-end de navegador nem limite de cobertura.
+- `@mariozechner/pi-coding-agent` é devDependency só para tipos (o runtime fornece a API real da extensão) e o npm marca essa linha como depreciada em favor de `@earendil-works/pi-coding-agent`.
+- O front end conversa com um runtime por janela: o arquivo de descoberta ou um servidor configurado à mão. Não há agregação de múltiplos runtimes.
+- A entrada de voz existe na UI (`src/hooks/useVoiceTranscription.ts`) e exige um endpoint STT compatível com OpenAI configurado nos settings; não há teste automatizado de navegador para ela.
+- Sem pacote publicado no npm e sem demo web hospedada; o README e o código assumem um runtime local.
 
-O projeto ainda contém nomes herdados da base original OpenCodeUI em alguns pontos, incluindo metadados do pacote e documentação antiga. A direção atual é PiAgentUI-first, e uma limpeza futura deve migrar esses nomes sem quebrar os workflows locais.
+## Documentação
+
+| Documento | Conteúdo |
+|---|---|
+| [`docs/superpowers/specs/`](docs/superpowers/specs/) | Specs de design da migração para extensão Pi, sessões, STT e controles de Git |
+| [`docs/superpowers/plans/`](docs/superpowers/plans/) | Planos de implementação e roadmap de contexto, skills e MCP |
+| [`CHANGELOG.md`](CHANGELOG.md) | Histórico de releases usado pelo workflow de release |
+| [`docker/`](docker/) | Dockerfiles, configs do Caddy e entrypoints da stack de containers |
 
 ## Licença
 
-Este repositório segue a licença declarada em `package.json`: `GPL-3.0-only`.
+GPL-3.0-only, conforme `package.json` e [`LICENSE`](LICENSE). PiAgentUI é um fork e uma reescrita do OpenCodeUI; os autores originais estão creditados em `src-tauri/Cargo.toml`.
