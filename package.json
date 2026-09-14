@@ -2,13 +2,16 @@
   "name": "piagentui",
   "version": "0.6.10",
   "description": "Professional AI Agent Desktop & Web UI — sessions, MCP tools, skills browser, voice input, terminal, file explorer, and Tauri desktop app. Works with Pi Agent, Claude Code, Codex, OpenCode, Cursor, and any SSE-compatible agent.",
-  "homepage": "https://github.com/lehhair/OpenCodeUI",
+  "homepage": "https://github.com/evandrodevbr/PiAgentUI",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lehhair/OpenCodeUI.git"
+    "url": "git+https://github.com/evandrodevbr/PiAgentUI.git"
   },
   "license": "GPL-3.0-only",
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "vite",
     "typecheck": "tsc -b",
@@ -21,9 +24,9 @@
     "format:check": "prettier . --check",
     "test": "vitest",
     "test:run": "vitest run",
-    "validate": "npm run typecheck && npm run typecheck:extensions && npm run lint && npm run test:run && npm run build",
+    "validate": "npm run typecheck && npm run typecheck:extensions && npm run lint && npm run build && npm run test:run",
     "release:prepare": "node scripts/prepare-release.mjs",
-    "check": "npm run format:check && npm run lint && npm run test:run && npm run build",
+    "check": "npm run format:check && npm run lint && npm run build && npm run test:run",
     "preview": "vite preview",
     "tauri": "tauri",
     "postinstall": "node scripts/copy-material-icons.mjs"
@@ -61,6 +64,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@mariozechner/pi-coding-agent": "^0.73.1",
     "@tailwindcss/vite": "^4.2.2",
     "@tauri-apps/cli": "^2.10.0",
     "@testing-library/jest-dom": "^6.9.1",
