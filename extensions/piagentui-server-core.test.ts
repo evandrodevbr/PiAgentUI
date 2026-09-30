@@ -1,4 +1,10 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
+import * as os from 'node:os'
+
+vi.mock('node:os', async importOriginal => ({
+  ...(await importOriginal<typeof import('node:os')>()),
+  networkInterfaces: vi.fn().mockReturnValue({}),
+}))
 import {
   isLoopbackHost,
   validateBearerToken,
@@ -8,9 +14,47 @@ import {
   isRequestBodySizeAllowed,
   getLocalNetworkUrls,
   validateSttBaseUrl,
+  sendInternalServerError,
 } from './piagentui-server-core.js'
 
 describe('PiAgentUi Server Core Security Helpers', () => {
+  describe('sendInternalServerError', () => {
+    const response = () => ({
+      headersSent: false,
+      writableEnded: false,
+      destroyed: false,
+      writeHead: vi.fn(),
+      end: vi.fn(),
+      destroy: vi.fn(),
+    })
+
+    it('sends a JSON error when the response has not started', () => {
+      const res = response()
+      sendInternalServerError(res)
+      expect(res.writeHead).toHaveBeenCalledWith(500, { 'Content-Type': 'application/json' })
+      expect(res.end).toHaveBeenCalledWith('{"error":"Internal Server Error"}')
+      expect(res.destroy).not.toHaveBeenCalled()
+    })
+
+    it('closes a partial response without writing another header', () => {
+      const res = { ...response(), headersSent: true }
+      sendInternalServerError(res)
+      expect(res.destroy).toHaveBeenCalledOnce()
+      expect(res.writeHead).not.toHaveBeenCalled()
+      expect(res.end).not.toHaveBeenCalled()
+    })
+
+    it('leaves completed and destroyed responses alone', () => {
+      for (const state of [{ writableEnded: true }, { destroyed: true }]) {
+        const res = { ...response(), ...state }
+        sendInternalServerError(res)
+        expect(res.writeHead).not.toHaveBeenCalled()
+        expect(res.end).not.toHaveBeenCalled()
+        expect(res.destroy).not.toHaveBeenCalled()
+      }
+    })
+  })
+
   describe('isLoopbackHost', () => {
     it('should accept loopback hostnames and IPs', () => {
       expect(isLoopbackHost('localhost')).toBe(true)
@@ -84,6 +128,12 @@ describe('PiAgentUi Server Core Security Helpers', () => {
   })
 
   describe('getLocalNetworkUrls', () => {
+    it('preserves local access when network enumeration is unavailable', () => {
+      vi.mocked(os.networkInterfaces).mockImplementationOnce(() => {
+        throw new Error('network enumeration denied')
+      })
+      expect(getLocalNetworkUrls(58785)).toEqual([])
+    })
     it('should build LAN URLs from non-internal IPv4 interfaces', () => {
       const urls = getLocalNetworkUrls(58785, {
         WiFi: [

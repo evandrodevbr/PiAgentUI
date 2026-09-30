@@ -12,6 +12,7 @@ import {
   isRequestBodySizeAllowed,
   getLocalNetworkUrls,
   validateSttBaseUrl,
+  sendInternalServerError,
 } from './piagentui-server-core.js'
 import {
   createPiAgentUiSettingsStore,
@@ -2075,8 +2076,7 @@ export default function (pi: ExtensionAPI) {
       const urlPath = req.url || ''
       if (urlPath.startsWith('/api/') || urlPath.startsWith('/global/')) {
         handleApiRequest(req, res).catch(() => {
-          res.writeHead(500, { 'Content-Type': 'application/json' })
-          res.end(JSON.stringify({ error: 'Internal Server Error' }))
+          sendInternalServerError(res)
         })
       } else {
         handleStaticFile(req, res, urlPath)

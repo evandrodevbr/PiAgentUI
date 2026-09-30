@@ -73,9 +73,7 @@ export function downloadFileContent(content: FileContent, fileName: string): voi
   const encoding = content.encoding || ''
   const textContent = content.content || ''
   // 统一转为 Uint8Array
-  const data = isBinaryContent(encoding)
-    ? base64ToBytes(textContent)
-    : new TextEncoder().encode(textContent)
+  const data = isBinaryContent(encoding) ? base64ToBytes(textContent) : new TextEncoder().encode(textContent)
 
   const mimeType = isBinaryContent(encoding)
     ? content.mimeType || 'application/octet-stream'
@@ -95,7 +93,8 @@ export function saveData(data: Uint8Array, fileName: string, mimeType = 'applica
       console.warn('[downloadUtils] Tauri save failed:', err)
     })
   } else {
-    const blob = new Blob([data.buffer as ArrayBuffer], { type: mimeType })
+    // A view may cover only part of its backing buffer (for example, a file chunk).
+    const blob = new Blob([new Uint8Array(data)], { type: mimeType })
     triggerBrowserDownload(blob, fileName)
   }
 }

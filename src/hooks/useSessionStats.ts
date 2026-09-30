@@ -235,13 +235,12 @@ export function useSessionStats(
       }
     }
 
-    const totalOrEstimatedContext = estimateCurrentContext(messages)
     const contextEstimated = shouldUseEstimatedContext(messages, lastAssistantWithTokensIndex, lastAssistantWithTokens)
     const rawContextUsed = contextEstimated
-      ? totalOrEstimatedContext
+      ? estimateCurrentContext(messages)
       : lastAssistantWithTokens
         ? tokenTotal(lastAssistantWithTokens.tokens)
-        : totalOrEstimatedContext
+        : estimateCurrentContext(messages)
     const contextUsed = Number.isFinite(rawContextUsed) ? rawContextUsed : 0
     const rawContextPercent = contextLimit > 0 ? (contextUsed / contextLimit) * 100 : 0
     const contextPercent = Number.isFinite(rawContextPercent) ? Math.min(100, Math.max(0, rawContextPercent)) : 0

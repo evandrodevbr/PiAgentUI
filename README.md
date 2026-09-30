@@ -205,3 +205,9 @@ Two things to know when running the suite: `npm run test:run` needs `dist/` to e
 ## License
 
 GPL-3.0-only, as declared in `package.json` and [`LICENSE`](LICENSE). PiAgentUI is a fork and rework of OpenCodeUI; the original authors are credited in `src-tauri/Cargo.toml`.
+
+## Review checks (2026-09-30)
+
+Browser downloads include exactly the requested byte view, without adjacent bytes from its backing buffer. Session statistics skip the full message-text scan when real token usage is available. LAN discovery is best effort: restricted network-interface enumeration keeps the local API usable. Failed requests close partial responses without attempting to send headers twice.
+
+Run `npm run validate` for application/extension type checks, lint, build and tests. Focused checks: `npm run test:run -- src/utils/downloadUtils.test.ts src/hooks/useSessionStats.test.tsx extensions/piagentui-server-core.test.ts`. Dependencies, native desktop/mobile builds and live agent flows require their own checks; an application unit-test pass does not replace those validations.
