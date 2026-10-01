@@ -1,5 +1,19 @@
 import * as path from 'node:path'
 import * as os from 'node:os'
+import type { ServerResponse } from 'node:http'
+
+/** Finish a failed request without sending headers twice or leaving a partial response open. */
+export function sendInternalServerError(
+  response: Pick<ServerResponse, 'headersSent' | 'writableEnded' | 'destroyed' | 'writeHead' | 'end' | 'destroy'>,
+): void {
+  if (response.writableEnded || response.destroyed) return
+  if (response.headersSent) {
+    response.destroy()
+    return
+  }
+  response.writeHead(500, { 'Content-Type': 'application/json' })
+  response.end(JSON.stringify({ error: 'Internal Server Error' }))
+}
 
 /**
  * Checks if a host string matches a loopback host (localhost or 127.0.0.1 or ::1)
@@ -123,10 +137,15 @@ export function validateHostAndOriginForAccess(
   return true
 }
 
-export function getLocalNetworkUrls(
-  port: number,
-  interfaces: NodeJS.Dict<os.NetworkInterfaceInfo[]> = os.networkInterfaces(),
-): string[] {
+export function getLocalNetworkUrls(port: number, interfaces?: NodeJS.Dict<os.NetworkInterfaceInfo[]>): string[] {
+  if (!interfaces) {
+    try {
+      interfaces = os.networkInterfaces()
+    } catch {
+      // LAN discovery is best effort; local API access still works without it.
+      return []
+    }
+  }
   const physicalUrls = new Set<string>()
   const fallbackUrls = new Set<string>()
 

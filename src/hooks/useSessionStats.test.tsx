@@ -9,6 +9,35 @@ vi.mock('../store', () => ({
 }))
 
 describe('useSessionStats', () => {
+  it('does not scan message text when actual usage is available', () => {
+    const readText = vi.fn(() => 'large historical message')
+    useMessageStoreMock.mockReturnValue({
+      messages: [
+        {
+          info: {
+            role: 'assistant',
+            cost: 0,
+            tokens: { input: 10, output: 5, reasoning: 0, cache: { read: 0, write: 0 } },
+          },
+          parts: [
+            {
+              type: 'text',
+              get text() {
+                return readText()
+              },
+            },
+          ],
+        },
+      ],
+    })
+
+    const { result } = renderHook(() => useSessionStats(100))
+
+    expect(result.current.contextUsed).toBe(15)
+    expect(result.current.contextEstimated).toBe(false)
+    expect(readText).not.toHaveBeenCalled()
+  })
+
   it('switches to estimated context after a compaction turn', () => {
     useMessageStoreMock.mockReturnValue({
       messages: [
